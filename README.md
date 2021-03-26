@@ -1,6 +1,6 @@
 # Desafío
 
-- Forkear este repo
+- Forkear y clonar este repo
 
 - dentro del módulo **models.ts** crear y exportar la clase **ContactsCollection**
 
@@ -22,6 +22,10 @@
       - en el caso de que **action** sea "save" **params** es lo que se debe usar como contacto nuevo
 
 - completar los tests para **ContactsController** en **controllers.test.ts**
+
+
 - parsear los argumentos en **index.ts** usando https://www.npmjs.com/package/minimist
 - instanciar el **ContactsController** e invocar a su método **processOptions**
 - imprimir la respuesta en la terminal
+
+- Enviar un PR con los cambios y chequear que los tests de github pasen correctamente
