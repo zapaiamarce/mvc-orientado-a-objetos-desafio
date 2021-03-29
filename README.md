@@ -5,11 +5,12 @@
 - dentro del módulo **models.ts** crear y exportar la clase **ContactsCollection**
 
   - la clase debe tener una propiedad interna (se puede llamar como quieran) donde se guarde el array con la data
-  - debe tener un método **load()** que cargue la info desde el contacts.json y guardarla en **data**
+  - debe tener un método **load()** que cargue la info desde el contacts.json y guardarla en **data**. 
   - getAll() debe devolverme la collection completa
   - addOne(contact) {} debe agregar un contacto a la lista
   - save debe escribir todo el objeto interno en el archivo **contacts.json**
   - getOneById(id) debe devolver uno de los contactos por id
+  - Pueden usar la librería https://www.npmjs.com/package/jsonfile para leer y escribir en el archivo **contacts.json** (readFileSync y writeFileSync)
 
 - dentro del módulo **controllers.ts** crear la clase **ContactsController**
 
