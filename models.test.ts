@@ -32,7 +32,7 @@ test("Testeo el save del modelo", (t) => {
   t.deepEqual(fileContent, model.getAll());
 });
 
-test("Testeo el save del modelo", (t) => {
+test("Testeo el getOneById del modelo", (t) => {
   const model = new ContactsCollection();
   const mockContact = {
     id: 31,
