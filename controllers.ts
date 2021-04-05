@@ -22,6 +22,7 @@ class ContactsController {
 
     // condiciones GET
     let esGet = optionsController.action == "get";
+    let esSave = optionsController.action == "save";
     let existeElID = _.includes(idDeLosContactos, optionsController.params);
 
     if (esGet && existeElID) {
@@ -34,9 +35,10 @@ class ContactsController {
       return arrayData;
     }
 
-    if (optionsController.action == "save") {
-      this.contacts.arrayDeDatos.push(optionsController.params);
+    if (esSave) {
+      this.contacts.addOne(optionsController.params);
       this.contacts.save();
+      return "Tu item fue guardado satisfactoriamente.";
     }
   }
 }

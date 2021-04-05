@@ -18,7 +18,7 @@ function parseaParams(argv): ContactsControllerOptions {
     let parametros = params[0];
     return {
       action: actions[0],
-      params: parametros,
+      params: JSON.parse(parametros),
     };
   }
 }
