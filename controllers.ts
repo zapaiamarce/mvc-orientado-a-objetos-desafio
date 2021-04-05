@@ -1,5 +1,5 @@
 import { ContactsCollection } from "./models";
-import * as _ from "lodash"
+import * as _ from "lodash";
 
 export class ContactsControllerOptions {
   action: "get" | "save";
@@ -9,35 +9,35 @@ export class ContactsControllerOptions {
 class ContactsController {
   contacts: ContactsCollection;
   constructor() {
-   this.contacts = new ContactsCollection
-   this.contacts.load()
-}
+    this.contacts = new ContactsCollection();
+    this.contacts.load();
+  }
 
   processOptions(options: ContactsControllerOptions) {
-  
-  const optionsController = options
-  const arrayData = this.contacts.getAll()
-  const idDeLosContactos = arrayData.map(c => {return c.id})
+    const optionsController = options;
+    const arrayData = this.contacts.getAll();
+    const idDeLosContactos = arrayData.map((c) => {
+      return c.id;
+    });
 
-  // condiciones
-  let esGet = optionsController.action == "get";
-  let existeElID = _.includes(idDeLosContactos,optionsController.params)
+    // condiciones GET
+    let esGet = optionsController.action == "get";
+    let existeElID = _.includes(idDeLosContactos, optionsController.params);
 
+    if (esGet && existeElID) {
+      return arrayData.find((c) => {
+        return c.id == optionsController.params;
+      });
+    }
 
-  if (esGet && existeElID){
-    return arrayData.find(c => {return c.id == optionsController.params})
-  }
-  
-  if (esGet && existeElID == false) {
-    return arrayData
-  }
-  
-  
-  if(optionsController.action == "save") {
-    console.log("es save")
-  }
+    if (esGet && existeElID == false) {
+      return arrayData;
+    }
 
+    if (optionsController.action == "save") {
+      this.contacts.arrayDeDatos.push(optionsController.params);
+      this.contacts.save();
+    }
   }
 }
 export { ContactsController };
-
