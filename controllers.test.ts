@@ -1,6 +1,23 @@
 import test from "ava";
-import { ContactsController } from "./controllers";
+import { ContactsController, ContactsControllerOptions } from "./controllers";
+import { ContactsCollection } from "./models";
 
-// test("Testeo el constructor del controller", (t) => {});
+test("Testeo el constructor del controller", (t) => {
+  const contactController = new ContactsController();
+  contactController.contacts.load();
+  const mock = contactController.contacts.getOneById(3);
+  t.deepEqual(mock.name, "Mer");
+});
 
-// test("Testeo el método processOptions", (t) => {});
+test("Testeo el método processOptions", (t) => {
+  const contactController = new ContactsController();
+  contactController.contacts.load();
+
+  let options: ContactsControllerOptions = {
+    action: "get",
+    params: { id: 2 },
+  };
+
+  const contacto = contactController.processOptions(options);
+  t.deepEqual(contacto.name, "Paula");
+});
