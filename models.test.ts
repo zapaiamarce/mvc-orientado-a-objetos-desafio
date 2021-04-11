@@ -2,7 +2,7 @@ import test from "ava";
 import { ContactsCollection } from "./models";
 import * as contactsObject from "./contacts.json";
 import * as jsonfile from "jsonfile";
-
+//PEPITO
 test("Testeo el load del modelo", (t) => {
   const model = new ContactsCollection();
   model.load();
