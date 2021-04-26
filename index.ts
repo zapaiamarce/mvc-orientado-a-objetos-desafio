@@ -4,9 +4,10 @@ import * as minimist from "minimist";
 function parseaParams(argv): ContactsControllerOptions {
   // parsear el argv usando https://www.npmjs.com/package/minimist
   const resultado = minimist(argv);
+  const contacto = {};
   return {
     action: resultado.action,
-    params: resultado.params,
+    params: JSON.parse(resultado.params),
   };
 }
 

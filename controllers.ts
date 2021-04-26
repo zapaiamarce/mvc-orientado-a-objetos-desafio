@@ -22,6 +22,8 @@ class ContactsController {
       }
     } else if (options.action == "save") {
       this.contacts.addOne(options.params);
+      this.contacts.save();
+      return this.contacts.getAll();
     }
   }
 }
