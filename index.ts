@@ -30,7 +30,9 @@ function main() {
     const argumentosParseados = parseaParams(argumentos);
 
     // Invoco al método para procesar
-    console.log("\n", controller.processOptions(argumentosParseados));
+    const resultadoFinal = controller.processOptions(argumentosParseados);
+
+    console.log("\n>>>\n", resultadoFinal);
 }
 
 // Ejecución del programa
