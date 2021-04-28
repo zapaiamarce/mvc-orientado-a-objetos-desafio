@@ -17,10 +17,8 @@ test("Testeo el método processOptions", (t) => {
     t.is(
         unaPruebita.processOptions({
             action: "get",
-            params: { id: 30 },
+            params: { id: 1 },
         }),
-        unaPruebita.contacts.contactData[
-            unaPruebita.contacts.contactData.length - 1
-        ]
+        unaPruebita.contacts.contactData[0]
     );
 });

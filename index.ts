@@ -1,5 +1,6 @@
 import * as minimist from "minimist";
 import { ContactsController, ContactsControllerOptions } from "./controllers";
+import { ContactsCollection } from "./models";
 
 function parseaParams(argv): ContactsControllerOptions {
     // parsear el argv usando https://www.npmjs.com/package/minimist

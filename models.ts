@@ -6,7 +6,7 @@ class Contact {
 }
 
 class ContactsCollection {
-    contactData: Contact[];
+    contactData: Contact[] = [];
 
     // Método para guardar los contactos del JSON a la propiedad
     load() {
