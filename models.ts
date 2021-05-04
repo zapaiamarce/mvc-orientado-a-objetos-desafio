@@ -1,5 +1,4 @@
-import * as contactsJson from './contacts.json';
-import * as fs from 'fs';
+import * as jsonfile from 'jsonfile';
 
 
 class Contact {
@@ -10,7 +9,8 @@ class Contact {
 class ContactsCollection {
   contacts: Contact[] = []
   load(){
-    contactsJson.map(
+    const json = jsonfile.readFileSync("./contacts.json")
+    json.map(
       c => this.contacts.push(c)
     )
   }
@@ -21,7 +21,7 @@ class ContactsCollection {
     this.contacts.push(contact)
   }
   save(){
-    fs.writeFileSync("./contacts.json", JSON.stringify(this.contacts));
+    jsonfile.writeFileSync("./contacts.json", this.contacts)
   }
   getOneById(id){
     return this.contacts.find(
@@ -30,4 +30,4 @@ class ContactsCollection {
   }
 }
 
-export { ContactsCollection };
+export { ContactsCollection, Contact };
