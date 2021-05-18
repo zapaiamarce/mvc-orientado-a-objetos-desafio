@@ -1,44 +1,44 @@
 import test from "ava";
 import { ContactsCollection } from "./models";
-import * as contactsObject from "./contacts.json";
+import * as contactsOfJson from "./contacts.json";
 import * as jsonfile from "jsonfile";
 
 test("Testeo el load del modelo", (t) => {
-  const model = new ContactsCollection();
-  model.load();
-  t.deepEqual(contactsObject, model.getAll());
+  const newContactsCollection = new ContactsCollection();
+  newContactsCollection.load();
+  t.deepEqual(contactsOfJson, newContactsCollection.getAll());
 });
 
 test("Testeo el addOne del modelo", (t) => {
-  const model = new ContactsCollection();
+  const newContactsCollection = new ContactsCollection();
   const mockContact = {
     id: 30,
     name: "Marce",
   };
-  model.addOne(mockContact);
-  t.deepEqual(model.getAll(), [mockContact]);
+  newContactsCollection.addOne(mockContact);
+  t.deepEqual(newContactsCollection.getAll(), [mockContact]);
 });
 
 test("Testeo el save del modelo", (t) => {
-  const model = new ContactsCollection();
-  model.load();
+  const newContactsCollection = new ContactsCollection();
+  newContactsCollection.load();
   const mockContact = {
     id: 30,
     name: "Marce",
   };
-  model.addOne(mockContact);
-  model.save();
+  newContactsCollection.addOne(mockContact);
+  newContactsCollection.save();
   const fileContent = jsonfile.readFileSync("./contacts.json");
-  t.deepEqual(fileContent, model.getAll());
+  t.deepEqual(fileContent, newContactsCollection.getAll());
 });
 
 test("Testeo el getOneById del modelo", (t) => {
-  const model = new ContactsCollection();
+  const newContactsCollection = new ContactsCollection();
   const mockContact = {
     id: 31,
     name: "Marce",
   };
-  model.addOne(mockContact);
-  const one = model.getOneById(31);
-  t.deepEqual(one, mockContact);
+  newContactsCollection.addOne(mockContact);
+  const getOneId = newContactsCollection.getOneById(31);
+  t.deepEqual(getOneId, mockContact);
 });
