@@ -1,3 +1,4 @@
+import { ContactsCollection } from "./models";
 import { ContactsController, ContactsControllerOptions } from "./controllers";
 
 function parseaParams(argv): ContactsControllerOptions {
@@ -8,6 +9,9 @@ function parseaParams(argv): ContactsControllerOptions {
   };
 }
 
-function main() {}
+function main() {
+  const coll = new ContactsCollection()
+  coll.getOneById(1)
+}
 
 main();
