@@ -25,7 +25,7 @@ test("Testeo el método processOptions", (t) => {
 
   //metodo save
   datosArgv.action = "save";
-  datosArgv.params = '{"id":15,"nombre":"Naruto"}';
+  datosArgv.params = { id: 15, nombre: "Naruto" };
   const contactJson = jsonfile.readFileSync("./contacts.json");
   t.deepEqual(contactJson, allContacts);
 });
