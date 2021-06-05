@@ -40,5 +40,5 @@ test("Testeo el getOneById del modelo", (t) => {
   };
   model.addOne(mockContact);
   const one = model.getOneById(31);
-  t.deepEqual(one, mockContact);
+  t.deepEqual(one, [mockContact]);
 });

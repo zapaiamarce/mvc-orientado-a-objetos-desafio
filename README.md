@@ -23,7 +23,6 @@
 
 - completar los tests para **ContactsController** en **controllers.test.ts**
 
-
 - parsear los argumentos en **index.ts** usando https://www.npmjs.com/package/minimist
 - instanciar el **ContactsController** e invocar a su método **processOptions**
 - imprimir la respuesta en la terminal
