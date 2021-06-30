@@ -15,7 +15,6 @@ test("Testeo el método processOptions", (t) => {
   options.action = "get";
   options.params = { id: 31 };
   const one = controller.processOptions(options);
-
   const contacts = new ContactsCollection();
   const two = contacts.getOneById(1);
 

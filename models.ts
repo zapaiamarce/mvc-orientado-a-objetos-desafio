@@ -29,7 +29,6 @@ class ContactsCollection extends Contact {
         return;
       }
     };
-
     jsonFile.writeFileSync("contacts.json", this.data, passed);
   }
 
