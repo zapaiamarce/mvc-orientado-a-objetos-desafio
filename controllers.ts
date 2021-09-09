@@ -1,3 +1,4 @@
+import { addListener } from "process";
 import { ContactsCollection } from "./models";
 
 export class ContactsControllerOptions {
@@ -7,7 +8,23 @@ export class ContactsControllerOptions {
 
 class ContactsController {
   contacts: ContactsCollection;
-  constructor() {}
-  processOptions(options: ContactsControllerOptions) {}
+
+  constructor() {
+    this.contacts = new ContactsCollection();
+    this.contacts.load();
+  }
+
+  processOptions(options: ContactsControllerOptions) {
+    if (options.action == "get" && options.params.id) {
+      return this.contacts.getOneById(options.params.id);
+    } else if (options.action == "get") {
+      return this.contacts.getAll();
+    } else if (options.action == "save" && options.params) {
+      this.contacts.addOne(options.params);
+      this.contacts.save();
+      return this.contacts.getAll();
+    }
+  }
 }
+
 export { ContactsController };
