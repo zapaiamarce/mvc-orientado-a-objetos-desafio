@@ -1,7 +1,7 @@
 {
   "name": "test-ava",
   "version": "1.0.0",
-  "description": "",
+  "description": "- Forkear y clonar este repo",
   "main": "index.ts",
   "scripts": {
     "test": "ava"
@@ -28,5 +28,13 @@
   },
   "dependencies": {
     "jsonfile": "^6.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rje1974/mvc-orientado-a-objetos-desafio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rje1974/mvc-orientado-a-objetos-desafio/issues"
+  },
+  "homepage": "https://github.com/rje1974/mvc-orientado-a-objetos-desafio#readme"
 }
