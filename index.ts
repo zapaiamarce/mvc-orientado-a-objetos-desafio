@@ -8,6 +8,8 @@ function parseaParams(argv): ContactsControllerOptions {
   };
 }
 
-function main() {}
+function main() {
+  return true;
+}
 
 main();
