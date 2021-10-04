@@ -25,4 +25,5 @@ test("Testeo el método processOptions", (t) => {
   const c = prueba.contacts.getAll();
   const d = prueba.processOptions(pruebaPO);
   t.deepEqual(a, b);
+  console.log("test");
 });
