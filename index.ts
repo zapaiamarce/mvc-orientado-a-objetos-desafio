@@ -20,11 +20,6 @@ function main() {
   prueba.action = parseaParams(argv).action // inyecto el valor actions al objeto
   prueba.params = parseaParams(argv).params // inyecto el valor params al objeto
   
-  // console.log('hola soy prueba',prueba.action)
-  // console.log('hola soy params',prueba.params)
-  // console.log('hola soy prueba',prueba)
-
-
 
   const pruebaContactControler = new ContactsController
   pruebaContactControler.processOptions(prueba)
