@@ -48,7 +48,7 @@ class ContactsCollection {
 
 
 }
-export { ContactsCollection };
+export { Contact, ContactsCollection };
 
 // function main (){
 
