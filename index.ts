@@ -15,12 +15,10 @@ function parseaParams(argv) {
 
 function main() {
   
-  
   const prueba = new ContactsControllerOptions // creo el objeto prueba
   prueba.action = parseaParams(argv).action // inyecto el valor actions al objeto
   prueba.params = parseaParams(argv).params // inyecto el valor params al objeto
   
-
   const pruebaContactControler = new ContactsController
   pruebaContactControler.processOptions(prueba)
   return pruebaContactControler

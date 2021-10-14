@@ -10,6 +10,7 @@ Dentro del módulo models.ts crear y exportar la clase ContactsCollection
     * getOneById(id) debe devolver uno de los contactos por id (LIQUIDADO)
 
 */
+
 import { fstat,writeFileSync } from 'fs';
 import { stringify } from 'querystring';
 import * as contactsJSON from './contacts.json';
@@ -24,9 +25,7 @@ class ContactsCollection {
   propiedadInterna:Contact[] = []
   
   load(){
-
     return this.propiedadInterna = contactsJSON
-
   }
 
   getAll(){
@@ -49,29 +48,3 @@ class ContactsCollection {
 
 }
 export { Contact, ContactsCollection };
-
-// function main (){
-
-//   const prueba = new ContactsCollection
-//   const pruebaContacto = new Contact
-//   pruebaContacto.id = 46
-//   pruebaContacto.name = "Juan"
-
-
-//   console.log("Hola estoy aqui para ayudarte")
-//   console.log()
-//   console.log("..getAll sin tener nada cargado ", prueba.getAll())
-//   console.log()
-//   console.log("..prueba de load ", prueba.load())
-//   console.log("..getAll despues de load ", prueba.getAll())
-//   console.log()
-//   console.log("..prueba de addOne ", prueba.addOne(pruebaContacto))
-//   console.log("..getAll despues de addOne ", prueba.getAll())
-//   console.log()
-//   console.log("..prueba de getOne ", prueba.getOneById(2))
-//   console.log()
-//   console.log("..prueba de escritura ", prueba.save())
-
-// }
-
-// main()

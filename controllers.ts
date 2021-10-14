@@ -14,7 +14,6 @@ Dentro del módulo controllers.ts crear la clase ContactsController
 
 */
 
-
 import { Contact, ContactsCollection } from "./models";
 
 export class ContactsControllerOptions {
@@ -29,11 +28,9 @@ class ContactsController {
     this.contacts = new ContactsCollection
     this.contacts.load() 
   }
-    
-  
+      
   processOptions(options: ContactsControllerOptions) {
-    //console.log("Estoy en process option y option.actions es:",options.action)
-    //console.log("Estoy en process option y option.params es:",options.params)
+
     if (options.action == "save") {
       const resultado = new Contact 
       resultado.id = 69;
