@@ -6,6 +6,7 @@ import * as jsonfile from "jsonfile";
 test("Testeo el load del modelo", (t) => {
   const model = new ContactsCollection();
   model.load();
+
   t.deepEqual(contactsObject, model.getAll());
 });
 
@@ -42,3 +43,5 @@ test("Testeo el getOneById del modelo", (t) => {
   const one = model.getOneById(31);
   t.deepEqual(one, mockContact);
 });
+
+//
