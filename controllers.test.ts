@@ -33,4 +33,12 @@ test("Testeo el método processOptions", (t) => {
     //debiera activar el método getAll()
     const opcionGetAll = controlador.processOptions({action:"get", params: "flor"});
     t.is(opcionGetAll, controlador.contacts.getAll());
+
+    //testeo la opción con {action: "save"};
+    //debiera activar el metodo addOne();
+    const objParams = {"id": 123, "name": "Flor"}
+    controlador.processOptions({action: "save", params: objParams});
+    const listaCompleta = controlador.contacts.getAll();
+    t.is(objParams, listaCompleta[4]);
+
 });

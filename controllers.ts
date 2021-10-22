@@ -39,7 +39,7 @@ class ContactsController {
     //es lo que se debe usar como contacto nuevo
 
     if(options.action == "save") {
-      this.contacts.addOne(options.params)
+    this.contacts.addOne(options.params);
     }
 
   }
