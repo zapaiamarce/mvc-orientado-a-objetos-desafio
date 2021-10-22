@@ -1,4 +1,3 @@
-import { isDeepStrictEqual } from "util";
 import { ContactsCollection } from "./models";
 
 export class ContactsControllerOptions {
@@ -27,13 +26,13 @@ class ContactsController {
     //debe devolver un contacto en particular
 
     if(options.action == "get" && options.params.id) {
-      this.contacts.getOneById(options.params.id)
+     return this.contacts.getOneById(options.params.id);
     };
 
     //si id no existe significa que debe devolver todos los contactos
 
     if(options.action == "get"){
-      this.contacts.getAll()
+      return this.contacts.getAll();
     };
 
     //en el caso de que action sea "save" params
