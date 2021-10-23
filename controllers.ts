@@ -40,7 +40,7 @@ class ContactsController {
 
     if(options.action == "save") {
     this.contacts.addOne(options.params);
-    this.contacts.save();
+    // this.contacts.save();
     }
 
   }
