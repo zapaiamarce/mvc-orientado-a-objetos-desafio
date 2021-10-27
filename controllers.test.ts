@@ -1,6 +1,12 @@
-import test from "ava";
-import { ContactsController } from "./controllers";
+import test from 'ava';
+import { ContactsController, ContactsControllerOptions } from './controllers';
+import * as contactsObject from './contacts.json';
+import * as jsonfile from 'jsonfile';
 
-// test("Testeo el constructor del controller", (t) => {});
+test('Testeo el constructor del controller', (t) => {
+  const contact = new ContactsController();
 
-// test("Testeo el método processOptions", (t) => {});
+  t.deepEqual(contact.contacts.getAll(), contactsObject);
+});
+
+//test('Testeo el método processOptions', (t) => {});
