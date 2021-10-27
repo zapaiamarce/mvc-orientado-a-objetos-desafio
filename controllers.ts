@@ -14,12 +14,13 @@ class ContactsController {
   processOptions(options: ContactsControllerOptions) {
     var action = options.action;
     var params = options.params;
+
+    if (action == 'get' && options.params) {
+      return this.contacts.getOneById(params);
+    } else if (action == 'save') {
+      return this.contacts.addOne(params);
+    } else return this.contacts.getAll();
   }
 }
-
-const contact = new ContactsController();
-var params = new ContactsControllerOptions();
-params.action = 'get';
-params.params = 1;
 
 export { ContactsController };
