@@ -8,7 +8,6 @@ test("Testeo el load del modelo", (t) => {
   model.load();
   t.deepEqual(contactsObject, model.getAll());
 });
-
 test("Testeo el addOne del modelo", (t) => {
   const model = new ContactsCollection();
   const mockContact = {
@@ -31,6 +30,7 @@ test("Testeo el save del modelo", (t) => {
   const fileContent = jsonfile.readFileSync("./contacts.json");
   t.deepEqual(fileContent, model.getAll());
 });
+
 
 test("Testeo el getOneById del modelo", (t) => {
   const model = new ContactsCollection();
