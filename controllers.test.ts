@@ -9,9 +9,9 @@ test("Testeo el constructor del controller", (t) => {
 
 test("Testeo el método processOptions", (t) => {
   const contacto = new ContactsController();
-  const option = new ContactsControllerOptions();
-  option.action = "get";
-  option.params = 1;
-  const getContacto = contacto.processOptions(option);
+  const getContacto = contacto.processOptions({
+    action: "get",
+    params: { id: 1, name: "Ana" },
+  });
   t.deepEqual(getContacto, contacto.contacts.getOneById(1));
 });
