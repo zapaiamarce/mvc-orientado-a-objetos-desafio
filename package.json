@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "start": "ts-node index.ts"
   },
   "ava": {
+    "timeout": "10m",
     "extensions": {
       "ts": "module"
     },
@@ -27,6 +29,7 @@
     "typescript": "^4.2.3"
   },
   "dependencies": {
-    "jsonfile": "^6.1.0"
+    "jsonfile": "^6.1.0",
+    "minimist": "^1.2.5"
   }
 }
