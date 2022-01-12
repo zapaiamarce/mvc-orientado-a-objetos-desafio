@@ -19,8 +19,7 @@ class ContactsCollection {
     return this.data.push(contact); // Agrega un contacto a la colleción de Contacts (data)
   }
   save() {
-    //return jsonfile.writeFile(file, this.data);
-    return jsonfile.writeFileSync("./contacts.json", this.data);
+    return jsonfile.writeFileSync("./contacts.json", this.data); // Guarda la colección en "./contact.json"
   }
   getOneById(id) {
     return this.data.find((item) => {
