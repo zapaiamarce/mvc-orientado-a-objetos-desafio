@@ -6,6 +6,7 @@ function parseaParams(argv): ContactsControllerOptions {
     action: null,
     params: null,
   };
+  //var argv = require('minimist')(process.argv.slice(2));
 }
 
 function main() {}
