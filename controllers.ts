@@ -7,29 +7,20 @@ export class ContactsControllerOptions {
 
 class ContactsController {
   contactCollections: ContactsCollection;
-  constructor(contactCollections: ContactsCollection) {
+  constructor() {
     //Instancia ContactsCollection
-    this.contactCollections = contactCollections; // Lo guarda en una propiedad Interna
-    const loadNecesario = new ContactsCollection(); //Invoca el metodo .load() y carga la data
-    loadNecesario.load();
+    this.contactCollections = new ContactsCollection();
+    this.contactCollections.load();
   }
   processOptions(options: ContactsControllerOptions) {
-    const claseCalleada = new ContactsCollection();
-    if (
-      // Si recibe "get" y confirma que existe un contacto, devuelve el contacto
-      options.action == "get" &&
-      claseCalleada.getOneById(options.params) != undefined
-    ) {
-      return claseCalleada.getOneById(options.params);
-    } else if (
-      // Si recibe "get" y confirma que NO existe un contacto, devuelve todos los contactos
-      options.action == "get" && //S
-      claseCalleada.getOneById(options.params) == undefined
-    ) {
-      return claseCalleada.getAll();
-    } else if (options.action == "save") {
-      // Si recibe "save", agrega al contacto.
-      claseCalleada.addOne(claseCalleada.getOneById(options.params));
+    if (options.action == "get" && options.params.id) {
+      return this.contactCollections.getOneById(options.params.id);
+    } else if (options.action == "get") {
+      return this.contactCollections.getAll();
+    } else if (options.action == "save" && options.params) {
+      this.contactCollections.addOne(options.params);
+      this.contactCollections.save();
+      console.log("¡Contacto Guardado! (No le haga caso al undefined");
     }
   }
 }
