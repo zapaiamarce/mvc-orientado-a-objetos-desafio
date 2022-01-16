@@ -23,7 +23,7 @@ class ContactsCollection {
   save() {
     jsonfile.writeFileSync("./contacts.json", this.data);
   }
-  getOneId(id) {
+  getOneById(id) {
     const resultado = this.data.find(function(contact) {
       return id == contact.id;
     });
