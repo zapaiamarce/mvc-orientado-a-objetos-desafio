@@ -16,9 +16,11 @@ class ContactsCollection {
     this.data.push(contact);
   }
   save() {
-    jsonfile.writeFileSync("./contacts.json");
+    jsonfile.writeFileSync("./contacts.json", this.data);
   }
-  getOneById(id) {}
+  getOneById(id: number) {
+    return this.data.find((p) => p.id == id);
+  }
 }
 
 const con = new ContactsCollection();
