@@ -24,6 +24,6 @@ test("Testeo el método processOptions", (t) => {
   const objPersona = { id: 40, name: "gabriel" };
   contactCollection.processOptions({ action: "save", params: objPersona });
   const gabriel = idOfModel.getOneById(40);
-  t.is(elemento, idUser);
-  t.is(gabriel, objPersona);
+  t.deepEqual(elemento, idUser);
+  t.deepEqual(gabriel, objPersona);
 });

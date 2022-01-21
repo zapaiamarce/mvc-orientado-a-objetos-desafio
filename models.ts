@@ -23,6 +23,4 @@ class ContactsCollection {
   }
 }
 
-const con = new ContactsCollection();
-
 export { ContactsCollection };
