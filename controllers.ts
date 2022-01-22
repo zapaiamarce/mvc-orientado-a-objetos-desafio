@@ -14,6 +14,8 @@ class ContactsController {
   processOptions(options: ContactsControllerOptions) {
     if (options.action == "get" && options.params) {
       return this.contacts.getOneById(options.params.id);
+    } else if (options.action == "get") {
+      this.contacts.getAll();
     } else if (options.action == "save") {
       this.contacts.addOne(options.params);
       this.contacts.save();

@@ -15,8 +15,7 @@ function main() {
   const params = parseaParams(process.argv.slice(2));
   const output = controller.processOptions(params);
 
-  console.log(output);
-  console.log(controller.contacts.getAll());
+  return output;
 }
 
 main();
