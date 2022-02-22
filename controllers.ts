@@ -5,9 +5,29 @@ export class ContactsControllerOptions {
   params: any;
 }
 
+
 class ContactsController {
   contacts: ContactsCollection;
-  constructor() {}
-  processOptions(options: ContactsControllerOptions) {}
+  constructor() {
+    this.contacts = new ContactsCollection();
+    this.contacts.load();
+  }
+  processOptions(options: ContactsControllerOptions) {
+    const laOpcionEsGet = options.action == "get";
+    const laOpcionEsSave = options.action == "save";
+    const parametroConNumero = typeof options.params == "number";
+    const parametroConObj = typeof options.params == "object";
+    
+    if (laOpcionEsGet && parametroConNumero ){
+      return this.contacts.getOneById(options.params);
+    }else if(laOpcionEsGet){
+      return this.contacts.getAll();
+    }
+
+    if(laOpcionEsSave && parametroConObj){
+      this.contacts.addOne(options.params);
+      this.contacts.save();
+    }
+  }
 }
 export { ContactsController };
