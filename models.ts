@@ -9,7 +9,7 @@ class ContactsCollection {
 	data: Contact[] = [];
 
 	load() {
-		const datos = jsonfile.readFileSync('./contacts.json');
+		const datos = jsonfile.readFileSync(__dirname + '/contacts.json');
 		this.data = datos;
 	}
 	getAll() {
@@ -19,7 +19,7 @@ class ContactsCollection {
 		this.data.push(contact);
 	}
 	save() {
-		jsonfile.writeFileSync('./contacts.json', this.data);
+		jsonfile.writeFileSync(__dirname + '/contacts.json', this.data);
 	}
 	getOneById(id: number) {
 		return this.data.find((contacto) => contacto['id'] === id);

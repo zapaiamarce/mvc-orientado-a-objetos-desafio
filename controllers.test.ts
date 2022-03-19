@@ -5,13 +5,13 @@ import { ContactsController, ContactsControllerOptions } from './controllers';
 
 test('Testeo el constructor del controller', (t) => {
 	const nuevoController = new ContactsController();
-	const contactos = jsonfile.readFileSync('./contacts.json');
+	const contactos = jsonfile.readFileSync(__dirname + '/contacts.json');
 	t.deepEqual(contactos, nuevoController.contacts['data']);
 });
 
 test('Testeo el método processOptions con get y param false', (t) => {
 	const nuevoController = new ContactsController();
-	const contactos = jsonfile.readFileSync('./contacts.json');
+	const contactos = jsonfile.readFileSync(__dirname + '/contacts.json');
 	const mockOptions = new ContactsControllerOptions();
 	mockOptions['action'] = 'get';
 	mockOptions['params'] = false;
@@ -20,7 +20,7 @@ test('Testeo el método processOptions con get y param false', (t) => {
 
 test('Testeo el método processOptions con get y param con id', (t) => {
 	const nuevoController = new ContactsController();
-	const contactos = jsonfile.readFileSync('./contacts.json');
+	const contactos = jsonfile.readFileSync(__dirname + '/contacts.json');
 	const mockOptions = new ContactsControllerOptions();
 	mockOptions['action'] = 'get';
 	mockOptions['params'] = 1;
