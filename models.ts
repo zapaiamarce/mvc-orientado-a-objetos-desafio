@@ -1,4 +1,4 @@
-import * as jsonfile from "jsonFile"
+import * as jsonfile from "jsonfile"
 
 class Contact {
   id: number;
