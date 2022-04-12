@@ -8,8 +8,11 @@ class Contact {
 class ContactsCollection {
   data: Contact[] = [];
   load() {
-    const loadInfo = jsonfile.readFileSync("./contacts.json");
-    this.data = loadInfo;
+    const promesa = jsonfile.readFile("./contacts.json");
+    promesa.then((json) => {
+      this.data = json;
+    });
+    return promesa;
   }
   getAll() {
     return this.data;
@@ -18,7 +21,7 @@ class ContactsCollection {
     return this.data.push(contact);
   }
   save() {
-    jsonfile.writeFileSync("./contacts.json", this.data);
+    jsonfile.writeFile("./contacts.json", this.data);
   }
   getOneById(id) {
     const contactFound = this.data.find((i) => i.id == id);
