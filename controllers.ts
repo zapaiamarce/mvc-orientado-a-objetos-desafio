@@ -16,11 +16,12 @@ class ContactsController {
     if (options.action == "get" && resultado.includes(options.params)) {
       return this.contacts.getOneById(options.params);
     } else if (options.action == "get") {
-      return this.contacts.getAll;
+      return this.contacts.getAll();
     } else if (options.action == "save" && options.params) {
       this.contacts.addOne(options.params);
       this.contacts.save();
     }
+    return resultado;
   }
 }
 export { ContactsController };
