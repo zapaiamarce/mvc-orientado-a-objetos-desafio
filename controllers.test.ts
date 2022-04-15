@@ -11,7 +11,30 @@ test("Testeo el constructor del controller", (t) => {
 });
 
 // test("Testeo el método processOptions", (t) => {});
-test("Testeo el método processOptions getAll()", (t) => {
+test("Testeo el método processOptions", (t) => {
+  const mockOptionsAll = new ContactsControllerOptions();
+  mockOptionsAll.action = "get";
+
+  const mockOptionsId = new ContactsControllerOptions();
+  mockOptionsId.action = "get";
+  mockOptionsId.params = 1;
+
+  const mockOptionsSave = new ContactsControllerOptions();
+  mockOptionsSave.action = "save";
+  mockOptionsSave.params = { id: 33, name: "Jesús" };
+
+  const controller = new ContactsController();
+  const processOptionsAll = controller.processOptions(mockOptionsAll);
+  const processOptionsId = controller.processOptions(mockOptionsId);
+  const processOptionsSave = controller.processOptions(mockOptionsSave);
+  const laData = jsonfile.readFileSync("./contacts.json");
+
+  t.deepEqual(processOptionsAll, laData);
+  t.deepEqual(processOptionsId, laData[0]);
+  t.deepEqual(laData[laData.length - 1], mockOptionsSave.params);
+});
+
+/* test("Testeo el método processOptions getAll()", (t) => {
   const mockOptionsAll = new ContactsControllerOptions();
   mockOptionsAll.action = "get";
 
@@ -45,3 +68,4 @@ test("Testeo el método processOptions addOne() y save()", (t) => {
 
   t.deepEqual(laData[laData.length - 1], mockOptionsSave.params);
 });
+ */
