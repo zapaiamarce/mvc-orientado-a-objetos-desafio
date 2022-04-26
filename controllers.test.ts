@@ -13,13 +13,24 @@ test("Testeo el método processOptions", (t) => {
     const controller = new ContactsController;
 
     const mockContact = {
-        id: 9,
-        name: "Seba",
-      };
+        id: 888,
+        name: "Seba"
+    }
 
-    const optionGet = new ContactsControllerOptions("get", 3);
+    const optionGetTrue = new ContactsControllerOptions("get", 3);
     const userFindedByContactsMethod = controller.contacts.getOneById(3);
-    const userFinded = controller.processOptions(optionGet);
+    const userFindedTrue = controller.processOptions(optionGetTrue);
 
-    t.is(userFinded, userFindedByContactsMethod, "Test no pasò, no son inguales.");
+    const optionGetFalse = new ContactsControllerOptions("get", 9989);
+    const getAll = controller.contacts.getAll();
+    const userFindedFalse = controller.processOptions(optionGetFalse);
+
+    const optionSave = new ContactsControllerOptions("save", mockContact);
+    const getTheContact = controller.contacts.getOneById(mockContact.id);
+    
+
+    t.is(userFindedTrue, userFindedByContactsMethod, "Test no pasò, get TRUE y la DB no son iguales");
+    t.is(userFindedFalse, getAll, "Test no paso, get FALSE y la DB no son iguales.");
+    t.is(getTheContact, mockContact, "Test Save no pasó.")
+
 });
