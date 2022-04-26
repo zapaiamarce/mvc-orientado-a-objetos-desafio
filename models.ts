@@ -8,7 +8,7 @@ class Contact {
 class ContactsCollection {
   contacts: Contact[] = [];
   load() {
-    const leerJSON = jsonfile.readFileSync("contacts.json")
+    const leerJSON = jsonfile.readFileSync(__dirname + "/contacts.json")
     this.contacts = leerJSON;
   };
   getAll() {
