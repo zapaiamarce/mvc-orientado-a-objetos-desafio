@@ -19,7 +19,6 @@ class ContactsCollection {
   };
   save(){ 
     jsonfile.writeFileSync("./contacts.json", this.contacts);
-    return console.log("contacto guardado");
   }
   getOneById(id) { 
     const busqueda = this.contacts.find(i => i.id == id);
