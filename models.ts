@@ -18,13 +18,23 @@ class ContactsCollection {
     const contactoEncontrado = this.data.find((c) => c.id === contact.id);
     if (!contactoEncontrado) {
       this.data.push(contact);
+      console.log("Contacto agregado correctamente");
+      return;
     }
+    console.log(
+      `Ya existe el id: ${contact.id}. No se puede agregar este contacto`
+    );
+    return;
   }
   save() {
     jsonfile.writeFileSync("./contacts.json", this.data);
   }
   getOneById(id: number) {
-    return this.data.find((c) => c.id === id);
+    const resultado = this.data.find((c) => c.id === id);
+    if (resultado) {
+      return resultado;
+    }
+    console.log(`No se encontraron contactos con el id: ${id}`);
   }
 }
 export { ContactsCollection };
