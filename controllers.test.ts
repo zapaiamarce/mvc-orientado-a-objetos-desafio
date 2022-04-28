@@ -12,26 +12,14 @@ test("Testeo el constructor del controller", (t) => {
 
 test("Testeo el método processOptions", (t) => {
   const prueba = new ContactsController();
-  const nuevoContado = { id: 18, name: "Marcela" };
-
-  const encontrado = prueba.processOptions({
-    action: "get",
-    params: { id: 1 },
-  });
-
-  const noEncontrado = prueba.processOptions({
-    action: "get",
-    params: { id: 15 },
-  });
-
-  const guardado = prueba.processOptions({
+  const datos = prueba.processOptions({ action: "get", params: { id: 1 } });
+  const contactos = prueba.processOptions({ action: "get", params: {} });
+  const guardar = prueba.processOptions({
     action: "save",
-    params: nuevoContado,
+    params: { id: 15, name: "Jazmín" },
   });
-
-  const unDato = prueba.contacts.getOneById(1);
-  const otroDato = prueba.contacts.getOneById(15);
-  t.deepEqual(unDato, encontrado);
-  t.deepEqual(otroDato, noEncontrado);
-  t.deepEqual(guardado, prueba.contacts.save());
+  const fileContent = jsonfile.readFileSync("./contacts.json");
+  t.deepEqual(fileContent[0], datos);
+  t.deepEqual(fileContent, contactos);
+  t.deepEqual(prueba.contacts.save(), guardar);
 });
