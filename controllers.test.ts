@@ -1,6 +1,21 @@
 import test from "ava";
-import { ContactsController } from "./controllers";
+import { ContactsController, ContactsControllerOptions } from "./controllers";
+import * as jsonfile from "jsonfile";
 
-// test("Testeo el constructor del controller", (t) => {});
+test("Testeo el constructor del controller", (t) => {
+  const controller = new ContactsController();
+  const contactos = jsonfile.readFileSync("./contacts.json");
 
-// test("Testeo el método processOptions", (t) => {});
+  t.deepEqual(controller.contacts.getAll(), contactos);
+});
+
+test("Testeo el método processOptions", (t) => {
+  const controller = new ContactsController();
+  const contactos = jsonfile.readFileSync("./contacts.json");
+  const options = new ContactsControllerOptions();
+  options.action = "get";
+  options.params = false;
+  const respuestaMock = controller.processOptions(options);
+
+  t.deepEqual(respuestaMock, contactos);
+});
