@@ -8,21 +8,17 @@ class Contact {
 class ContactsCollection {
   data: Contact[] = [];
   load() {
-    const arcJson = jsonfile.readFileSync(__dirname + "./contacts.json");
+    const arcJson = jsonfile.readFileSync("./contacts.json");
     this.data = arcJson;
   }
   getAll() {
     return this.data;
   }
   addOne(contact: Contact) {
-    return this.data.push(contact);
+    this.data.push(contact);
   }
   save() {
-    const write = jsonfile.writeFileSync(
-      __dirname + "./contacts.json",
-      this.data
-    );
-    return write;
+    jsonfile.writeFileSync("./contacts.json", this.data);
   }
   getOneById(id) {
     const buscando = this.data.find((identificador) => {
@@ -33,4 +29,4 @@ class ContactsCollection {
     return buscando;
   }
 }
-export { ContactsCollection };
+export { ContactsCollection, Contact };
