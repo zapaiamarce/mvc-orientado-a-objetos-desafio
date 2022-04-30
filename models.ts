@@ -8,7 +8,7 @@ class Contact {
 class ContactsCollection {
   data: Contact[] = [];
   load() {
-    const arcJson = jsonfile.readFileSync("./contacts.json");
+    const arcJson = jsonfile.readFileSync(__dirname + "./contacts.json");
     this.data = arcJson;
   }
   getAll() {
@@ -18,7 +18,10 @@ class ContactsCollection {
     return this.data.push(contact);
   }
   save() {
-    const write = jsonfile.writeFileSync("./contacts.json", this.data);
+    const write = jsonfile.writeFileSync(
+      __dirname + "./contacts.json",
+      this.data
+    );
     return write;
   }
   getOneById(id) {
