@@ -1,32 +1,23 @@
-import {Contact, ContactsController, ContactsControllerOptions } from "./controllers";
+import {ContactsController, ContactsControllerOptions} from "./controllers";
 import * as minimist from "minimist"
 
-function parseaParams(argConsola):ContactsControllerOptions {
+function parseaParams(argv):ContactsControllerOptions {
   // parsear el argv usando https://www.npmjs.com/package/minimist
-  const rta = minimist(argConsola) 
-  return rta
+  const rta = minimist(argv) 
+  return {
+    action : rta.action,
+    params : JSON.parse(rta.params)
+  };
 }
 
 function main() {
   
-  const controladorContacto = new ContactsController()
+  const controller = new ContactsController()
 
-  const argvConsola = process.argv.slice(2)
-  const argumentosParseados = parseaParams(argvConsola)
-  controladorContacto.processOptions(argumentosParseados)
-  
-  
-  console.log(controladorContacto.contacts.getAll());
-  const contacto2 = { 
-    id : 10 , 
-    name : "leoh"
-  }
+  const ejecutor = parseaParams(process.argv.slice(2))
 
-  controladorContacto.contacts.addOne(contacto2)
-  
-  console.log(controladorContacto.contacts.getAll());
-  
-  
+  const resultado = controller.processOptions(ejecutor)
+  console.log(resultado);
 }
 
 main();
