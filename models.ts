@@ -8,7 +8,7 @@ class Contact {
 class ContactsCollection {
   data: Contact[] = [];
   load() {
-    const arcJson = jsonfile.readFileSync("./contacts.json");
+    var arcJson = jsonfile.readFileSync("./contacts.json");
     this.data = arcJson;
   }
   getAll() {
@@ -21,12 +21,7 @@ class ContactsCollection {
     jsonfile.writeFileSync("./contacts.json", this.data);
   }
   getOneById(id) {
-    const buscando = this.data.find((identificador) => {
-      if (identificador.id == id) {
-        return true;
-      }
-    });
-    return buscando;
+    return this.data.find((identificador) => identificador.id == id);
   }
 }
 export { ContactsCollection, Contact };

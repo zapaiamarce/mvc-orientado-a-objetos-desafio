@@ -6,7 +6,7 @@ test("Testeo el constructor del controller", (t) => {
   const testConstContr = new ContactsController();
   testConstContr.contacts.load();
   const dataModels = testConstContr.contacts.getAll();
-  const dataJson = jsonfile.readFileSync("./contacts.json");
+  var dataJson = jsonfile.readFileSync("./contacts.json");
   t.deepEqual(dataModels, dataJson);
 });
 test("Testeo el método processOptions", (t) => {
@@ -23,8 +23,11 @@ test("Testeo el método processOptions", (t) => {
     action: "save",
     params: { id: 12, name: "Ivo" },
   });
-  const dataJson = jsonfile.readFileSync("./contacts.json");
+  var dataJson = jsonfile.readFileSync("./contacts.json");
   t.deepEqual(dataJson[0], probandoCero);
   t.deepEqual(probandoUno, dataJson);
-  t.deepEqual(testProcOpt.contacts.save(), probandoDos);
+  t.deepEqual(
+    testProcOpt.contacts.addOne({ id: 12, name: "Ivo" }),
+    probandoDos
+  );
 });
