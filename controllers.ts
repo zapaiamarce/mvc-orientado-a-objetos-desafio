@@ -2,9 +2,9 @@ import { Contact, ContactsCollection } from "./models";
 import * as  _ from 'lodash';
 
 export class ContactsControllerOptions {
-  action: "get" | "save";
+  action: string;
   params: any;
-  constructor(action: "get" | "save", params: number | Contact){
+  constructor(action: string, params: number | Contact){
     this.action = action;
     this.params = params;
   }
@@ -20,7 +20,7 @@ class ContactsController {
     const optionAction = options.action;
     const optionParams = options.params;
 
-    if(optionAction == "get" && optionParams != isNaN){
+    if(optionAction === "get" && optionParams != isNaN){
       // const idFound = this.contacts.data.includes(optionParams);
       // To Do, validar que el ID existe o no y retornar la respeusta.
 
@@ -32,13 +32,17 @@ class ContactsController {
       }else{
         return this.contacts.getAll();
       }
-    };
-
-    if(optionAction == "save"){
-      this.contacts.addOne(optionParams);
+    }else{
+      if(optionAction == "save" && optionParams){
+        this.contacts.addOne(optionParams);
+        this.contacts.save();     
+        
+        // console.log("Se uso SAVE")
+      }  
     }
 
-    return null
+    
+    // return null
   };
 }
 export { ContactsController };

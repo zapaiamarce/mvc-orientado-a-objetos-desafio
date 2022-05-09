@@ -21,7 +21,8 @@
     "@types/jsonfile": "^6.1.0",
     "@types/lodash": "^4.14.182",
     "@types/node": "^14.14.35",
-    "jsonfile": "^6.1.0"
+    "jsonfile": "^6.1.0",
+    "minimist": "^1.2.6"
   },
   "dependencies": {
     "@ava/typescript": "^3.0.1",
