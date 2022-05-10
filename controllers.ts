@@ -34,8 +34,9 @@ class ContactsController {
       }
     }else{
       if(optionAction == "save" && optionParams){
+        // JSON.parse(optionParams);
         this.contacts.addOne(optionParams);
-        this.contacts.save();     
+        this.contacts.save();
         
         // console.log("Se uso SAVE")
       }  
