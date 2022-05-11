@@ -3,22 +3,20 @@ import * as minimist from "minimist";
 
 function parseaParams(argv): ContactsControllerOptions{
   // parsear el argv usando https{}://www.npmjs.com/package/minimis  
-
-  console.log(argv);
-  var paramsParseados = JSON.parse(argv["params"]);
+  const resultado = minimist(argv);
+  console.log(resultado);
   
 
   return {
-    action: argv["action"],
-    params: paramsParseados,
+    action: resultado.action,
+    params: JSON.parse(resultado.params),
   };
 }
 
 function main() {
+  const controlador = new ContactsController;
 
- const argv = minimist(process.argv.slice(2)); 
- const controlador = new ContactsController;
- console.log(controlador.processOptions(parseaParams(argv)));
+  console.log(controlador.processOptions(parseaParams(process.argv.slice(2))));
 
 }
 
