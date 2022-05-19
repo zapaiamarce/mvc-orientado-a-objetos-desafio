@@ -19,13 +19,14 @@ test("Testeo el método processOptions", (t) => {
     action: "get",
     params: {},
   });
-  const probandoDos = new ContactsControllerOptions();
-  probandoDos.action = "save";
-  probandoDos.params = { id: 12, name: "Ivo" };
-  testProcOpt.processOptions(probandoDos);
+  const probandoDos = testP.processOptions({
+    action: "save",
+    params: { id: 12, name: "Ivo" },
+  });
+
   var dataJson = jsonfile.readFileSync("./contacts.json");
+
   t.deepEqual(dataJson[0], probandoCero);
   t.deepEqual(probandoUno, dataJson);
+  t.deepEqual(probandoDos, testP.contacts.save[1]);
 });
-
-// t.deepEqual(testProcOpt.contacts.save(), probandoDos);
