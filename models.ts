@@ -21,8 +21,7 @@ class ContactsCollection {
     jsonfile.writeFileSync("./contacts.json", this.data);
   }
   getOneById(id: number) {
-    const idEncontrado = this.data.find((ids) => ids.id === id);
-    return idEncontrado;
+    return this.data.find((ids) => ids.id == id);
   }
 }
 export { ContactsCollection, Contact };
