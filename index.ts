@@ -1,4 +1,3 @@
-import {ContactsCollection} from "./models"
 import { ContactsController, ContactsControllerOptions } from "./controllers";
 import * as minimist from "minimist"
 
