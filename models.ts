@@ -1,18 +1,14 @@
-import * as fs from 'fs';
+import * as jsonfile from 'jsonfile';
 
 class Contact {
     id: number;
     name: string;
 }
-function aperturaJSON(nombreArchivo: string) {
-    const archivo = fs.readFileSync(__dirname + '/' + nombreArchivo);
-    const archivoEnTexto = archivo.toString();
-    return JSON.parse(archivoEnTexto);
-}
+
 class ContactsCollection {
     data: Contact[] = [];
     load() {
-        const contacts = aperturaJSON('./contacts.json');
+        const contacts = jsonfile.readFileSync('./contacts.json');
         contacts.forEach((c) => {
             this.addOne(c);
         });
@@ -24,9 +20,7 @@ class ContactsCollection {
         this.data.push(contact);
     }
     save() {
-        const datos = this.getAll();
-        const json = JSON.stringify(datos);
-        fs.writeFileSync('contacts.json', json);
+        jsonfile.writeFileSync('contacts.json', this.data);
     }
     getOneById(id: number) {
         const contact = this.data.find((p) => {

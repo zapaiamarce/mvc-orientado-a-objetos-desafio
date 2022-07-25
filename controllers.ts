@@ -12,10 +12,7 @@ class ContactsController {
         this.contacts.load();
     }
     processOptions(parametro: ContactsControllerOptions) {
-        if (
-            parametro.action === 'get' &&
-            typeof parametro.params === 'number'
-        ) {
+        if (parametro.action == 'get' && typeof parametro.params == 'number') {
             return this.contactById(parametro);
         } else {
             this.addContact(parametro);
@@ -30,10 +27,7 @@ class ContactsController {
         }
     }
     addContact(parametro) {
-        this.contacts.addOne({
-            id: parametro.id,
-            name: parametro.name,
-        });
+        this.contacts.addOne(parametro);
     }
 }
 
