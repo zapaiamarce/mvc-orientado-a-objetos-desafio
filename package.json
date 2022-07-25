@@ -1,32 +1,29 @@
 {
-  "name": "test-ava",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.ts",
-  "scripts": {
-    "test": "ava"
-  },
-  "ava": {
-    "extensions": {
-      "ts": "module"
+    "name": "test-ava",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.ts",
+    "scripts": {
+        "test": "ava"
     },
-    "nonSemVerExperiments": {
-      "configurableModuleFormat": true
+    "ava": {
+        "extensions": {
+            "ts": "commonjs"
+        },
+        "nodeArguments": [
+            "--loader=ts-node/esm"
+        ]
     },
-    "nodeArguments": [
-      "--loader=ts-node/esm"
-    ]
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/node": "^14.14.35",
-    "ava": "^3.15.0",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.2.3"
-  },
-  "dependencies": {
-    "jsonfile": "^6.1.0"
-  }
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^14.14.35",
+        "ava": "^4.3.1",
+        "ts-node": "^9.1.1",
+        "typescript": "^4.2.3"
+    },
+    "dependencies": {
+        "jsonfile": "^6.1.0"
+    }
 }
