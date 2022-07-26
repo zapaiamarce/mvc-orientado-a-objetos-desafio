@@ -1,6 +1,6 @@
 class Contact {
-  id: number;
-  name: string;
+  id: number = 0;
+  name: string = "";
 }
 
 class ContactsCollection {}
