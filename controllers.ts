@@ -21,6 +21,7 @@ class ContactsController {
       this.contacts.addOne(options.params);
       this.contacts.save();
     }
+    return resultado
   }
 }
 

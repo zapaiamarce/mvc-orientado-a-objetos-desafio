@@ -19,7 +19,7 @@ class ContactsCollection {
     this.data.push(contact);
   }
   save() {
-    jsonfile.writeFileSync("./conctacts.json", this.data);
+    jsonfile.writeFileSync("./contacts.json", this.data);
   }
   getOneById(id) {
     return this.data.find((item) => item.id == id)
