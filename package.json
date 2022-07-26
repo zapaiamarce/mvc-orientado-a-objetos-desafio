@@ -1,29 +1,26 @@
 {
-    "name": "test-ava",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.ts",
+    "name": "ava-typescript-basic",
+    "description": "Basic example for AVA with TypeScript",
     "scripts": {
-        "test": "ava"
+        "test": "rimraf ./build && ava"
+    },
+    "devDependencies": {
+        "@ava/typescript": "^2.0.0",
+        "@sindresorhus/tsconfig": "^1.0.2",
+        "@types/jsonfile": "^6.1.0",
+        "ava": "^3.15.0",
+        "typescript": "^4.3.4"
     },
     "ava": {
-        "extensions": {
-            "ts": "commonjs"
-        },
-        "nodeArguments": [
-            "--loader=ts-node/esm"
-        ]
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "@types/node": "^14.14.35",
-        "ava": "^4.3.1",
-        "ts-node": "^9.1.1",
-        "typescript": "^4.2.3"
+        "typescript": {
+            "compile": "tsc",
+            "rewritePaths": {
+                "source/": "build/"
+            }
+        }
     },
     "dependencies": {
-        "jsonfile": "^6.1.0"
+        "jsonfile": "^6.1.0",
+        "rimraf": "^3.0.2"
     }
 }
