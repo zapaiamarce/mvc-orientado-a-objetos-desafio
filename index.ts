@@ -16,7 +16,7 @@ function main() {
 	const controller = new ContactsController();
 	const params = parseaParams(process.argv.slice(2));
 	const reslutado = controller.processOptions(params);
-	console.log(reslutado);
+	return reslutado;
 }
 
 main();
