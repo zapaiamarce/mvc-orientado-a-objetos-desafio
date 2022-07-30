@@ -15,7 +15,7 @@ class ContactsController {
 		var reslutado;
 		if (options.action == "get" && options.params.id) {
 			reslutado = this.contacts.getOneById(options.params.id);
-		} else if (options.params.id == false) {
+		} else if (options.params.id == "get") {
 			reslutado = this.contacts.getAll();
 		} else if (options.action == "save" && options.params) {
 			this.contacts.addOne(options.params);
