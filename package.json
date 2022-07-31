@@ -20,7 +20,10 @@
     }
   },
   "dependencies": {
+    "@types/minimist": "^1.2.2",
+    "@types/node": "^18.6.1",
     "jsonfile": "^6.1.0",
+    "minimist": "^1.2.6",
     "rimraf": "^3.0.2"
   }
 }
