@@ -32,3 +32,5 @@ test("Testeo el método processOptions", (t) => {
 	});
 	t.deepEqual(addContact, controllerContacts.contacts.getOneById(15));
 });
+
+// ver si puedo pasar el ultimo test, de este modulo
