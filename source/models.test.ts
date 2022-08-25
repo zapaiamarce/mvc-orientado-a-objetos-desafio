@@ -12,7 +12,7 @@ test("Testeo el load del modelo", (t) => {
 test("Testeo el addOne del modelo", (t) => {
   const model = new ContactsCollection();
   const mockContact = {
-    id: 30,
+    id: 33,
     name: "Marce",
   };
   model.addOne(mockContact);
@@ -42,3 +42,6 @@ test("Testeo el getOneById del modelo", (t) => {
   const one = model.getOneById(31);
   t.deepEqual(one, mockContact);
 });
+
+
+

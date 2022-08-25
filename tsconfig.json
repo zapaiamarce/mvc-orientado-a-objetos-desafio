@@ -1,11 +1,11 @@
 {
-  "extends": "@sindresorhus/tsconfig",
   "compilerOptions": {
     "noUnusedLocals": false,
     "module": "commonjs",
     "outDir": "build",
     "resolveJsonModule": true,
     "noUnusedParameters": false,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "target": "ESNext"
   }
 }
