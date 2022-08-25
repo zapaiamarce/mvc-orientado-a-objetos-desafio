@@ -15,7 +15,7 @@ function parseaParams(argv): ContactsControllerOptions {
 function main() {
  let datos = parseaParams(process.argv.slice(2))
  let data = new ContactsCollection()
- let control = new ContactsController(data)
+ let control = new ContactsController()
  console.log(control.processOptions(datos))
  
 }

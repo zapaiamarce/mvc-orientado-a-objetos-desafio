@@ -22,6 +22,7 @@ class ContactsCollection {
     // Con esta funcion de lodash podemos verificar que no halla dos objetos con el mismo id
     let unicos = lodash.uniqBy(this.data,"id")
     jsonfile.writeFileSync(__dirname + "/contacts.json",unicos)
+    this.load()
   }
   getOneById(id:number){
     let filtrado = this.data.filter(ele=>ele.id === id)

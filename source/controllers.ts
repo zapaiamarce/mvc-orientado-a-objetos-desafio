@@ -7,10 +7,11 @@ export type ContactsControllerOptions = {
 
 class ContactsController {
 	contacts: ContactsCollection;
-	constructor(contacCollection : ContactsCollection) {
-		this.contacts = contacCollection
+	constructor(){
+		this.contacts = new ContactsCollection()
 		this.contacts.load()
 	}
+	
 	processOptions(options: ContactsControllerOptions) {
 		if(options.action === "get" && options.params){
 			let busqueda = this.contacts.getOneById(options.params)

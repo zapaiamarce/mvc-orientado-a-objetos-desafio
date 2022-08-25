@@ -12,7 +12,7 @@ test("Testeo el método processOptions GET", (t) => {
   let mocketGet = new ContactsCollection()
   mocketGet.load()
   let mocketGetId = mocketGet.getOneById(20)
-  let contactControl = new ContactsController(mocketGet)
+  let contactControl = new ContactsController()
   let contactControlId = contactControl.processOptions({action:"get",params:20})
   t.deepEqual(mocketGetId,contactControlId)
 
@@ -21,7 +21,7 @@ test("Testeo el método processOptions GET", (t) => {
 test("Testeo el metodo processOptions SAVE",t=>{
   let mocketSave = new ContactsCollection()
   mocketSave.load()
-  let contactControl = new ContactsController(mocketSave)
+  let contactControl = new ContactsController()
   contactControl.processOptions({action:"save",params:{id:30,name:"Gybriel"}})
   t.deepEqual(mocketSave.getAll(),contactControl.processOptions({action:"get",params:35}))
 })

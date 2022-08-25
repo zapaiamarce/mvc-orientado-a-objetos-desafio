@@ -42,3 +42,6 @@ test("Testeo el getOneById del modelo", (t) => {
   const one = model.getOneById(31);
   t.deepEqual(one, mockContact);
 });
+
+
+
