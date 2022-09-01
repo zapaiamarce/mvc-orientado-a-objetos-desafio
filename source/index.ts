@@ -1,13 +1,19 @@
 import { ContactsController, ContactsControllerOptions } from "./controllers";
+import * as minimist from "minimist";
 
 function parseaParams(argv): ContactsControllerOptions {
-  // parsear el argv usando https://www.npmjs.com/package/minimist
+  const parmDeLaTerm = minimist(argv);
   return {
-    action: null,
-    params: null,
+    action: parmDeLaTerm.action,
+    params: JSON.parse(parmDeLaTerm.params),
   };
 }
 
-function main() {}
+function main() {
+  const controller = new ContactsController();
+  const parametros = parseaParams(process.argv.slice(2));
+  const procesandoArg = controller.processOptions(parametros);
+  console.log(procesandoArg);
+}
 
 main();
