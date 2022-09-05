@@ -22,7 +22,7 @@ class ContactsCollection {
   }
   save() {
     let data = JSON.parse(JSON.stringify(this.datosGuardados));
-    return writeFileSync("contacts.json", data);
+    return writeFileSync(__dirname + "/contacts.json", data);
   }
   getOneById(id) {
     const contactById = this.datosGuardados.find((item) => item.id == id);

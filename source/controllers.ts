@@ -1,9 +1,9 @@
 import { ContactsCollection } from "./models";
 
-export type ContactsControllerOptions = {
+export class ContactsControllerOptions {
   action?: "get" | "save" | null;
   params: any;
-};
+}
 
 class ContactsController {
   contacts: ContactsCollection;
@@ -11,7 +11,6 @@ class ContactsController {
   constructor() {
     this.contacts = new ContactsCollection();
     this.contacts.load();
-    console.log(this.contacts);
   }
   processOptions(options: ContactsControllerOptions) {
     if (options.action == "get" && options.params.id) {
@@ -21,6 +20,7 @@ class ContactsController {
     } else if (options.action == "save" && options.params) {
       this.contacts.addOne(options.params);
       this.contacts.save();
+      return this.contacts.getAll();
     }
   }
 }
