@@ -13,7 +13,7 @@ class ContactsController {
   }
   processOptions(options: ContactsControllerOptions) {
     var resultado;
-    console.log(options.params);
+    console.log(typeof options.params);
     if (options.action == "get" && options.params.id) {
       resultado = this.contacts.getOneById(options.params.id);
     } else if (options.action == "get") {
