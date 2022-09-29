@@ -17,8 +17,6 @@ class ContactsCollection {
   }
   addOne(contact) {
     this.collection.push(contact);
-
-    return this.collection;
   }
   save() {
     fs.writeFileSync(

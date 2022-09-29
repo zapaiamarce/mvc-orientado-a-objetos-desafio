@@ -25,6 +25,8 @@ class ContactsController {
     if (options.action == "save") {
       return this.contacts.addOne(options.params);
     }
+
+    return this.contacts.collection;
   }
 }
 
