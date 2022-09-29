@@ -12,10 +12,6 @@ test("Testeo el constructor del controller", (t) => {
 test("Testeo el método processOptions", (t) => {
   const collection = new ContactsCollection();
   const controller = new ContactsController(collection);
-  const newContact = controller.contacts.addOne({
-    id: 5,
-    name: "Alejo",
-  });
 
   const getWithId = controller.processOptions({
     action: "get",
@@ -29,9 +25,15 @@ test("Testeo el método processOptions", (t) => {
   });
   t.deepEqual(controller.contacts.getAll(), getWithoutId);
 
+  controller.contacts.addOne({
+    id: 5,
+    name: "Alejo",
+  });
+  controller.contacts.save();
+
   const save = controller.processOptions({
     action: "save",
     params: { id: 5, name: "Alejo" },
   });
-  t.deepEqual(newContact, save);
+  t.deepEqual(controller.contacts.getAll(), save);
 });

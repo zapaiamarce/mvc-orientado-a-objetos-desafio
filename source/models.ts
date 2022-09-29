@@ -1,4 +1,4 @@
-import * as contacts from "./contacts.json";
+import * as jsonfile from "jsonfile";
 import * as fs from "fs";
 
 class Contact {
@@ -10,19 +10,17 @@ class ContactsCollection {
   collection: Contact[] = [];
 
   load() {
-    this.collection.push(...contacts);
+    const json = jsonfile.readFileSync(__dirname + "/contacts.json");
+    this.collection = json;
   }
   getAll() {
     return this.collection;
   }
-  addOne(contact) {
+  addOne(contact: Contact) {
     this.collection.push(contact);
   }
   save() {
-    fs.writeFileSync(
-      __dirname + "/contacts.json",
-      JSON.stringify(this.collection)
-    );
+    jsonfile.writeFileSync(__dirname + "/contacts.json", this.collection);
   }
   getOneById(id) {
     return this.collection.find((contact) => contact.id == id);
