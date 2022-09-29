@@ -1,13 +1,24 @@
+import * as minimist from "minimist";
 import { ContactsController, ContactsControllerOptions } from "./controllers";
+import { ContactsCollection } from "./models";
 
 function parseaParams(argv): ContactsControllerOptions {
-  // parsear el argv usando https://www.npmjs.com/package/minimist
+  const args = minimist(argv);
+
   return {
-    action: null,
-    params: null,
+    action: args.action,
+    params: JSON.parse(args.params),
   };
 }
 
-function main() {}
+function main() {
+  const args = parseaParams(process.argv.slice(2));
+
+  const collection = new ContactsCollection();
+  const controller = new ContactsController(collection);
+  const result = controller.processOptions(args);
+
+  console.log(result);
+}
 
 main();
