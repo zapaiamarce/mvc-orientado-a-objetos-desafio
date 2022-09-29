@@ -1,5 +1,5 @@
 import * as contacts from "./contacts.json";
-import { writeFileSync } from "node:fs";
+import * as fs from "fs";
 
 class Contact {
   id: number = 0;
@@ -17,9 +17,11 @@ class ContactsCollection {
   }
   addOne(contact) {
     this.collection.push(contact);
+
+    return this.collection;
   }
   save() {
-    writeFileSync(
+    fs.writeFileSync(
       __dirname + "/contacts.json",
       JSON.stringify(this.collection)
     );
