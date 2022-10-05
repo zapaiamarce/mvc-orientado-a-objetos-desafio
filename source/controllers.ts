@@ -1,13 +1,34 @@
-// import { ContactsCollection } from "./models";
+import { ContactsCollection } from "./models";
 
 export type ContactsControllerOptions = {
-	action?: "get" | "save" | null;
-	params: any;
+  action?: "get" | "save" | null;
+  params: any;
 };
 
 class ContactsController {
-	// contacts: ContactsCollection;
-	constructor() {}
-	processOptions(options: ContactsControllerOptions) {}
+  contacts: ContactsCollection;
+
+  constructor(contacts: ContactsCollection) {
+    this.contacts = contacts;
+    contacts.load();
+  }
+
+  processOptions(options: ContactsControllerOptions) {
+    if (options.action == "get" && options.params.id) {
+      return this.contacts.getOneById(options.params.id);
+    }
+
+    if (options.action == "get") {
+      return this.contacts.getAll();
+    }
+
+    if (options.action == "save" && options.params) {
+      this.contacts.addOne(options.params);
+      this.contacts.save();
+    }
+
+    return this.contacts.collection;
+  }
 }
+
 export { ContactsController };
