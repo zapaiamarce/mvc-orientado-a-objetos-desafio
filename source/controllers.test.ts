@@ -6,4 +6,6 @@ test("Testeo el constructor del controller", (t) => {
   t.truthy(true);
 });
 
-// test("Testeo el método processOptions", (t) => {});
+test("Testeo el método processOptions", (t) => {
+
+});
