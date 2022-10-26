@@ -8,20 +8,20 @@ export type ContactsControllerOptions = {
 
 
 class ContactsController {
-	contacts: ContactsCollection;
+	contacts;
 	
 	constructor() {
-		this.contacts = new ContactsCollection()
+		this.contacts = new ContactsCollection();
   		this.contacts.load();
 	}
 
 	processOptions(options: ContactsControllerOptions) {
-		if (options.action == "get" && options.params.id) {
-			const contacto = this.contacts.getOneById(options.params.id)
+		if (options.action == "get" && options.params.id != null) {
+			const contacto = this.contacts.getOneById(options.params.id);
 			return contacto;
 		}
-		if (options.action == "get" && !options.params) {
-			return this.contacts;
+		if (options.action == "get" && options.params.id == null) {
+			return this.contacts.getAll();
 		}
 		if (options.action == "save") {
 			return this.contacts.addOne(options.params);
