@@ -1,11 +1,11 @@
 import test from "ava";
 import { ContactsController } from "./controllers";
 import * as js from 'jsonfile';
-import * as contactsObject from './contacts.json'
 
 test("Testeo el constructor del controller", (t) => {
   const mockController = new ContactsController()
-  t.deepEqual(contactsObject, mockController.contacts.getAll())
+  const fileContent = js.readFileSync(__dirname + '/contacts.json');
+  t.deepEqual(fileContent, mockController.contacts.getAll())
 });
 
 test("Testeo el método processOptions", (t) => {
@@ -14,7 +14,8 @@ test("Testeo el método processOptions", (t) => {
     id: 123,
     name: "Luffy"
   };
-  t.deepEqual(contactsObject, mockController.processOptions({action: "get",params:{}}));
+  const fileContent = js.readFileSync(__dirname + '/contacts.json');
+  t.deepEqual(fileContent, mockController.processOptions({action: "get",params:{}}));
   mockController.processOptions({action: "save", params: mockContact});
   t.deepEqual(mockContact, mockController.processOptions({action:"get",params:{id:123}}))
 });
