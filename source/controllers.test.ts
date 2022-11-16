@@ -1,11 +1,12 @@
 import test from "ava";
 import * as js from 'jsonfile';
-// import * as contactsObject from "./contacts.json";
+import { ContactsCollection } from "./models";
 import { ContactsController } from "./controllers";
 
 test("Testeo el constructor del controller", (t) => {
   const controller = new ContactsController();
-  t.deepEqual(js.readFileSync(__dirname + '/contacts.json'),controller.contacts.getAll())
+  const fileContent = js.readFileSync(__dirname + '/contacts.json'); 
+  t.deepEqual(fileContent,controller.contacts.getAll())
 });
 
 test("Testeo el método processOptions", (t) => {
