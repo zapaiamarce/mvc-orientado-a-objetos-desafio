@@ -24,7 +24,7 @@ class ContactsCollection {
     return contactWanted.find((c) => c.id == id);
   }
   save() {
-    jsonfile.writeFileSync("./contacts.json", this.contactList);
+    jsonfile.writeFileSync(__dirname + "./contacts.json", this.contactList);
   }
 }
 // function main(){
