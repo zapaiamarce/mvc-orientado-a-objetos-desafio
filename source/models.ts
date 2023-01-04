@@ -1,4 +1,3 @@
-import * as fs from "fs";
 import * as jsonfile from "jsonfile";
 
 class Contact {
@@ -12,7 +11,7 @@ class Contact {
 
 class ContactsCollection {
   datos: Contact[] = [];
-  constructor() {}
+
   load() {
     this.datos = jsonfile.readFileSync(__dirname + "/contacts.json");
   }
@@ -20,7 +19,7 @@ class ContactsCollection {
     return this.datos;
   }
   addOne(contact: Contact) {
-    return this.datos.push(contact);
+    this.datos.push(contact);
   }
   getOneById(id: number) {
     return this.datos.find((c) => {
@@ -48,4 +47,5 @@ function main() {
 main();
 */
 
+export { Contact };
 export { ContactsCollection };
