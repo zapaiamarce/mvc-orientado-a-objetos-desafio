@@ -14,7 +14,7 @@ test("Testeo de processOptions", (t) => {
   const modelFile = jsonfile.readFileSync(__dirname + "/contacts.json");
   t.deepEqual(modelFile, model.contacts.getAll());
 
-  const testDos = { name: "Enzo" };
+  const testDos = { name: "Ivan" };
   const contactos = jsonfile.readFileSync(__dirname + "/contacts.json");
   const result = model.processOptions({ action: "get", params: testDos });
   t.deepEqual(result, contactos);

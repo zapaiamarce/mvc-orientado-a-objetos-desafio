@@ -8,7 +8,7 @@ class Contact {
 class ContactsCollection {
   contacts: Contact[] = [];
   load() {
-    const json = jsonfile.readFileSync("./contacts.json");
+    const json = jsonfile.readFileSync(__dirname + "/contacts.json");
     this.contacts = json;
   }
   getAll() {
@@ -18,7 +18,7 @@ class ContactsCollection {
     this.contacts.push(contact);
   }
   save() {
-    jsonfile.writeFileSync("./contacts.json", this.contacts);
+    jsonfile.writeFileSync(__dirname + "/contacts.json", this.contacts);
   }
   getOneById(id: number) {
     const objetoEncontrado = this.contacts.find((item) => {
