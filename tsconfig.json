@@ -1,6 +1,7 @@
 {
   "extends": "@sindresorhus/tsconfig",
   "compilerOptions": {
+    "target": "ES2020",
     "noUnusedLocals": false,
     "module": "commonjs",
     "outDir": "build",
