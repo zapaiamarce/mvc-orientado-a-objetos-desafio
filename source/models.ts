@@ -34,4 +34,4 @@ class ContactsCollection {
     // }
   }
 }
-export { ContactsCollection };
+export { ContactsCollection , Contact};

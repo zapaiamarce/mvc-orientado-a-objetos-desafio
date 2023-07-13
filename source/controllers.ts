@@ -1,8 +1,9 @@
-import { ContactsCollection } from "./models";
+import { ContactsCollection, Contact } from "./models";
+
 
 export type ContactsControllerOptions = {
   action?: "get" | "save" | null;
-  params: any;
+  params: Contact;
 };
 
 class ContactsController {
@@ -10,12 +11,26 @@ class ContactsController {
   constructor() {
     const contact = new ContactsCollection()
     this.contacts = contact
-    contact.load()
+    this.contacts.load()
   }
   processOptions(options: ContactsControllerOptions) {
-//     dependiendo de las propiedades action y params debe interactuar con el modelo (ContactsController) e invocar distintos métodos
-// en el caso de que el action sea get y el objeto params tenga un id, debe devolver un contacto en particular, si id no existe significa que debe devolver todos los contactos
-// en el caso de que action sea save, params es lo que se debe usar como contacto nuevo
+    if(options.action == "get" && options.params.id){
+      const resp = this.contacts.getOneById(options.params.id)
+      if(resp != undefined){
+        return resp
+      }else{
+        return this.contacts.getAll()
+      }
+    }else if(options.action == "get"){
+      return this.contacts.getAll()
+    }else if(options.action == "save" && options.params){
+          this.contacts.addOne(options.params)
+          this.contacts.save()
+          // return this.contacts.getAll()
+        // if(validProp(options.params)){
+        //   this.contacts.addOne(options.params)
+        //   return this.contacts.getAll()}
+    }
   }
 }
 
