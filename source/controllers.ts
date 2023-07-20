@@ -13,16 +13,16 @@ class ContactsController {
     this.contacts = listaContactos;
   }
   processOptions(options: ContactsControllerOptions) {
-    let resultado;
+    let resultados;
     if (options.action == "get" && options.params.id) {
-      resultado = this.contacts.getOneById(options.params.id);
+      resultados = this.contacts.getOneById(options.params.id);
     } else if (options.action == "get") {
-      resultado = this.contacts.getAll();
+      resultados = this.contacts.getAll();
     } else if (options.action == "save" && options.params) {
       this.contacts.addOne(options.params);
       this.contacts.save();
     }
-    return resultado;
+    return resultados;
   }
 }
 export { ContactsController };
