@@ -1,4 +1,6 @@
 {
+  "target": "ESNext",
+  "module": "commonjs",
   "extends": "@sindresorhus/tsconfig",
   "compilerOptions": {
     "noUnusedLocals": false,
