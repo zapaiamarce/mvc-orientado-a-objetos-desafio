@@ -8,10 +8,7 @@ class Contact {
 class ContactsCollection {
   data: Contact[] = [];
   load() {
-    this.data = JSON.parse(
-      fs.readFileSync(__dirname + "/contacts.json").toString()
-    );
-    return this.data;
+    return (this.data = jsonfile.readFileSync(__dirname + "/contacts.json"));
   }
   getAll() {
     return this.data;
