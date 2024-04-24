@@ -1,31 +1,29 @@
-import * as contacts from "./contacts.json";
 import * as jsonfile from "jsonfile";
-
+import * as fs from "fs";
 class Contact {
   id: number = 0;
   name: string = "";
 }
 
 class ContactsCollection {
-  contactsColl: { id: number; name: string }[] = [];
+  data: Contact[] = [];
   load() {
-    this.contactsColl = contacts;
-    if (this.contactsColl.length > 0) {
-      return true;
-    } else {
-      return false;
-    }
+    this.data = JSON.parse(
+      fs.readFileSync(__dirname + "/contacts.json").toString()
+    );
+    return this.data;
   }
   getAll() {
-    return this.contactsColl;
+    return this.data;
   }
   addOne(contact: Contact) {
-    this.contactsColl.push(contact);
+    this.data.push(contact);
   }
   save() {
-    const file = "source/contacts.json";
-    jsonfile.writeFileSync(file, this.contactsColl);
-    return true;
+    return fs.writeFileSync(
+      __dirname + "/contacts.json",
+      JSON.stringify(this.data)
+    );
   }
   getOneById(id: number) {
     const contacts = this.getAll();
@@ -42,4 +40,4 @@ class ContactsCollection {
   }
 }
 
-export { ContactsCollection };
+export { ContactsCollection, Contact };

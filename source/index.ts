@@ -6,14 +6,13 @@ function parseaParams(argv): ContactsControllerOptions {
   const newParams: { action: any; params: any } = params as any;
   return {
     action: newParams.action,
-    params: JSON.parse(newParams.params),
+    params: JSON.parse(newParams.params) || "",
   };
 }
 
 function main() {
   const argv = process.argv.slice(2);
   const parameters = parseaParams(argv);
-  console.log("parametros parseados :", parameters);
   const controller = new ContactsController();
   const result = controller.processOptions(parameters);
   // console.log(result);
