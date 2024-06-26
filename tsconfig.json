@@ -2,7 +2,8 @@
   "extends": "@sindresorhus/tsconfig",
   "compilerOptions": {
     "noUnusedLocals": false,
-    "module": "commonjs",
+    "module": "Node16",
+    "moduleResolution": "Node16",
     "outDir": "build",
     "resolveJsonModule": true,
     "noUnusedParameters": false,
