@@ -5,11 +5,11 @@
     "test": "rimraf ./build && ava"
   },
   "devDependencies": {
-    "@ava/typescript": "^2.0.0",
+    "@ava/typescript": "^4.1.0",
     "@sindresorhus/tsconfig": "^1.0.2",
     "@types/jsonfile": "^6.1.0",
-    "ava": "^3.15.0",
-    "typescript": "^4.3.4"
+    "ava": "^6.0.1",
+    "typescript": "^5.3.3"
   },
   "ava": {
     "typescript": {
