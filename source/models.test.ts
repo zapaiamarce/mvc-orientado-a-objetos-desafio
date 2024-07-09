@@ -1,6 +1,6 @@
 import test from "ava";
 import { ContactsCollection } from "./models";
-import * as contactsObject from "./contacts.json";
+import * as contactsObject from "c:/Users/alvar/Desktop/apx-folder/mod1/mvc-orientado-a-objetos-desafio/intento2/mvc-orientado-a-objetos-desafio/source/contacts.json";
 import * as jsonfile from "jsonfile";
 
 test("Testeo el load del modelo", (t) => {
@@ -28,7 +28,7 @@ test("Testeo el save del modelo", (t) => {
   };
   model.addOne(mockContact);
   model.save();
-  const fileContent = jsonfile.readFileSync(__dirname + "/contacts.json");
+  const fileContent = jsonfile.readFileSync("c:/Users/alvar/Desktop/apx-folder/mod1/mvc-orientado-a-objetos-desafio/intento2/mvc-orientado-a-objetos-desafio/source/contacts.json");
   t.deepEqual(fileContent, model.getAll());
 });
 
