@@ -1,4 +1,4 @@
-import "c:/Users/alvar/Desktop/apx-folder/mod1/mvc-orientado-a-objetos-desafio/intento2/mvc-orientado-a-objetos-desafio/source/contacts.json"
+import "./contacts.json"
 import * as jsonfile from "jsonfile";
 
 class Contact {
@@ -9,7 +9,7 @@ class Contact {
 class ContactsCollection {
   data: Contact[] = [];
   load() {
-    const json = jsonfile.readFileSync("c:/Users/alvar/Desktop/apx-folder/mod1/mvc-orientado-a-objetos-desafio/intento2/mvc-orientado-a-objetos-desafio/source/contacts.json");
+    const json = jsonfile.readFileSync(__dirname + "/contacts.json");
     this.data = json;
   }
   getAll() {
@@ -19,7 +19,7 @@ class ContactsCollection {
     this.data.push(contact);
   }
   save() {
-    jsonfile.writeFileSync("c:/Users/alvar/Desktop/apx-folder/mod1/mvc-orientado-a-objetos-desafio/intento2/mvc-orientado-a-objetos-desafio/source/contacts.json", this.data);
+    jsonfile.writeFileSync(__dirname + "/contacts.json", this.data);
   }
   getOneById(id: number) {
     const finded = this.data.find((c) => {
