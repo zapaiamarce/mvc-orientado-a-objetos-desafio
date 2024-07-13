@@ -1,9 +1,17 @@
 import test from "ava";
-import { ContactsController } from "./controllers";
+import { ContactsController, ContactsControllerOptions } from "./controllers";
 
 test("Testeo el constructor del controller", (t) => {
-  // test de ejemplo
-  t.truthy(true);
-});
+   let a: ContactsController = new ContactsController();
+   let b = a.contacts.getOneById(1);
+   t.is(b.name, 'Ana')
+}); 
 
-// test("Testeo el método processOptions", (t) => {});
+test("Testeo el método processOptions", (t) => {
+   let a: ContactsControllerOptions = {
+     action: 'get',
+     params: 1 };
+   let b: ContactsController = new ContactsController();
+   let resultado = b.processOptions(a);
+   t.is(resultado.name, 'Ana')
+});
