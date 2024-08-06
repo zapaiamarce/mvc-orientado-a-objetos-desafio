@@ -9,6 +9,10 @@ test("Testeo el load del modelo", (t) => {
   t.deepEqual(contactsObject, model.getAll());
 });
 
+test.beforeEach(() => {
+  jsonfile.writeFileSync("./contacts.json", contactsObject);
+});
+
 test("Testeo el addOne del modelo", (t) => {
   const model = new ContactsCollection();
   const mockContact = {
@@ -28,7 +32,7 @@ test("Testeo el save del modelo", (t) => {
   };
   model.addOne(mockContact);
   model.save();
-  const fileContent = jsonfile.readFileSync(__dirname + "/contacts.json");
+  const fileContent = jsonfile.readFileSync("./contacts.json");
   t.deepEqual(fileContent, model.getAll());
 });
 
