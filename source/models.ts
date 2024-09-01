@@ -26,12 +26,12 @@ class ContactsCollection {
   }
   addOne(contact: Contact) {
     this.data.push(contact);
-   // return this.data
+    return this.data
   } 
   save() {
     //const dataParaElJson = JSON.stringify(this.data)
     //fs.writeFileSync ("./contacts.json", dataParaElJson)
-    jsonfile.writeFileSync("./source/contacts.json", this.data)
+    return jsonfile.writeFileSync("./source/contacts.json", this.data)
   }
   getOneById(id: number) {
     return this.data.find((obj) => obj.id === id)
