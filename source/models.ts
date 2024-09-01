@@ -19,7 +19,7 @@ class ContactsCollection {
   load() {
     //const datosBuffer = fs.readFileSync("./contacts.json")
     //const datosString = datosBuffer.toString()
-    this.data =  jsonfile.readFileSync("./contacts.json")//JSON.parse(datosString);
+    this.data =  jsonfile.readFileSync("./source/contacts.json")//JSON.parse(datosString);
   }
   getAll() {
     return this.data
@@ -31,7 +31,7 @@ class ContactsCollection {
   save() {
     //const dataParaElJson = JSON.stringify(this.data)
     //fs.writeFileSync ("./contacts.json", dataParaElJson)
-    jsonfile.writeFileSync("./contacts.json ", this.data)
+    jsonfile.writeFileSync("./source/contacts.json", this.data)
   }
   getOneById(id: number) {
     return this.data.find((obj) => obj.id === id)
