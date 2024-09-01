@@ -29,8 +29,9 @@ class ContactsCollection {
     return this.data
   } 
   save() {
-    const dataParaElJson = JSON.stringify(this.data)
-    fs.writeFileSync ("./contacts.json", dataParaElJson)
+    //const dataParaElJson = JSON.stringify(this.data)
+    //fs.writeFileSync ("./contacts.json", dataParaElJson)
+    jsonfile.writeFileSync("./contacts.json ", this.data)
   }
   getOneById(id: number) {
     return this.data.find((obj) => obj.id === id)
