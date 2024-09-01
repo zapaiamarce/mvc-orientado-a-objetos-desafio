@@ -26,7 +26,7 @@ class ContactsCollection {
   }
   addOne(contact: Contact) {
     this.data.push(contact);
-    return this.data
+   // return this.data
   } 
   save() {
     //const dataParaElJson = JSON.stringify(this.data)
