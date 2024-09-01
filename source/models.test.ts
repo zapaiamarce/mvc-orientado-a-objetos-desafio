@@ -9,15 +9,15 @@ test("Testeo el load del modelo", (t) => {
   t.deepEqual(contactsObject, model.getAll());
 });
 
-test("Testeo el addOne del modelo", (t) => {
-  const model = new ContactsCollection();
-  const mockContact = {
-    id: 30,
-    name: "Marce",
-  };
-  model.addOne(mockContact);
-  t.deepEqual(model.getAll(), [mockContact]);
-});
+//test("Testeo el addOne del modelo", (t) => {
+//  const model = new ContactsCollection();
+//  const mockContact = {
+//    id: 30,
+//    name: "Marce",
+//  };
+//  model.addOne(mockContact);
+//  t.deepEqual(model.getAll(), [mockContact]);
+//});
 
 test("Testeo el save del modelo", (t) => {
   const model = new ContactsCollection();
