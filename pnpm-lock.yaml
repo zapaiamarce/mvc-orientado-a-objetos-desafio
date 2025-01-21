@@ -8,9 +8,15 @@ importers:
 
   .:
     dependencies:
+      '@types/lodash':
+        specifier: ^4.17.14
+        version: 4.17.14
       jsonfile:
         specifier: ^6.1.0
         version: 6.1.0
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       rimraf:
         specifier: ^3.0.2
         version: 3.0.2
@@ -67,6 +73,9 @@ packages:
 
   '@types/jsonfile@6.1.4':
     resolution: {integrity: sha512-D5qGUYwjvnNNextdU59/+fI+spnwtTFmyQP0h+PfIOSkNfpU6AOICUOkm4i0OnSk+NyjdPJrxCDro0sJsWlRpQ==}
+
+  '@types/lodash@4.17.14':
+    resolution: {integrity: sha512-jsxagdikDiDBeIRaPYtArcT8my4tN1og7MtMRquFT3XNA6axxyHDRUemqDz/taRDdOUn0GnGHRCuff4q48sW9A==}
 
   '@types/node@20.14.10':
     resolution: {integrity: sha512-MdiXf+nDuMvY0gJKxyfZ7/6UFsETO7mGKF54MVD/ekJS6HdFtpZFBgrh6Pseu64XTb2MLyFPlbW6hj8HYRQNOQ==}
@@ -840,6 +849,8 @@ snapshots:
   '@types/jsonfile@6.1.4':
     dependencies:
       '@types/node': 20.14.10
+
+  '@types/lodash@4.17.14': {}
 
   '@types/node@20.14.10':
     dependencies:
