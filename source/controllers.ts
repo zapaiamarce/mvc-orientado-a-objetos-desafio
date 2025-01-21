@@ -1,5 +1,4 @@
 import { ContactsCollection } from "./models";
-import data from "./contacts.json";
 
 export type ContactsControllerOptions = {
     action?: "get" | "save" | null;
@@ -32,7 +31,4 @@ class ContactsController {
     }
 }
 
-const tes = new ContactsController();
-
-console.log(tes);
 export { ContactsController };

@@ -4,7 +4,6 @@ import "./contacts.json";
 // ya que para escribir o leer al archivo usamos la libreria "jsonfile"
 import * as jsonfile from "jsonfile";
 import { find } from "lodash";
-import fs from "fs";
 
 class Contact {
     id: number = 0;
@@ -30,12 +29,13 @@ class ContactsCollection {
     }
 
     save() {
-        // Convertimos los contactos a formato JSON
-        const data = JSON.stringify(this.contacts, null, 2);
-        console.log(data);
+        // Esto no funciona ya que al pasar un string JSON generado con JSON.stringify,
+        // se pasa un sring serializado con caracteres escapados y todo lo cual no coincide
+        // con el argumento esperado por jsonfile.writeFileSync()
+        // const data = JSON.stringify(this.contacts, null, 2);
 
         // Escribimos el archivo contacts.json
-        // fs.writeFileSync("contacts.json", data, "utf8");
+        // Lo correcto es pasar como argumento el dato a escribir directamente
         jsonfile.writeFileSync(__dirname + "/contacts.json", this.contacts, { spaces: 2 });
     }
 
@@ -64,4 +64,4 @@ class ContactsCollection {
 // res.addOne(mockContact);
 // console.log(res.getAll());
 
-export { ContactsCollection };
+export { ContactsCollection, Contact };
