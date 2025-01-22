@@ -13,6 +13,7 @@ class Contact {
 class ContactsCollection {
     contacts: Contact[] = [];
 
+    // carga la lista interna de contactos con datos externos (contacts.json)
     load() {
         const data = jsonfile.readFileSync(__dirname + "/contacts.json");
         data.map((contact: Contact) => {
@@ -20,14 +21,17 @@ class ContactsCollection {
         });
     }
 
+    // devuelve una copia de la lista interna de contactos
     getAll(): Contact[] {
         return [...this.contacts];
     }
 
+    // agrega un contacto a la lista interna de contactos
     addOne(contact: Contact) {
         this.contacts.push(contact);
     }
 
+    // guarda la lista interna de contactos en un archivo externo
     save() {
         // Esto no funciona ya que al pasar un string JSON generado con JSON.stringify,
         // se pasa un sring serializado con caracteres escapados y todo lo cual no coincide
@@ -39,29 +43,11 @@ class ContactsCollection {
         jsonfile.writeFileSync(__dirname + "/contacts.json", this.contacts, { spaces: 2 });
     }
 
+    // devuelve un contacto en base al id pasado como argumento
     getOneById(id: number) {
         const ret = find(this.contacts, (contact) => contact.id === id);
         return ret;
     }
 }
-
-// const res = new ContactsCollection();
-// res.load();
-// const data = jsonfile.readFileSync(__dirname + "/contacts.json");
-// console.log(res.getAll());
-// console.log(data);
-
-// const mockContact = {
-//     id: 30,
-//     name: "Marce",
-// };
-
-// const data1 = JSON.stringify(res, null, 2);
-// jsonfile.writeFile("C:/Users/Ale/Documents/Code/apx/Typescript/mvc-orientado-a-objetos-desafio/contacts.json", data, { spaces: 2 });
-
-// console.log(data1);
-
-// res.addOne(mockContact);
-// console.log(res.getAll());
 
 export { ContactsCollection, Contact };

@@ -8,6 +8,7 @@ export type ContactsControllerOptions = {
 class ContactsController {
     contacts: ContactsCollection;
 
+    // se instancia ContacsCollection y se carga su lista de contactos con datos externos
     constructor() {
         this.contacts = new ContactsCollection();
         this.contacts.load();
@@ -18,6 +19,7 @@ class ContactsController {
     processOptions(options: ContactsControllerOptions) {
         if (options.action === "save") {
             this.contacts.addOne(options.params);
+            this.contacts.save();
             return "Contacto guardado";
         } else if (options.action === "get") {
             if (typeof options.params === "number") {

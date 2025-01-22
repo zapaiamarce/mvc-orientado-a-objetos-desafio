@@ -22,6 +22,7 @@ test("Testeo el addOne del modelo", (t) => {
 test("Testeo el save del modelo", (t) => {
     const model = new ContactsCollection();
     model.load();
+    const auxModel = model;
     const mockContact = {
         id: 30,
         name: "Marce",
@@ -30,6 +31,7 @@ test("Testeo el save del modelo", (t) => {
     model.save();
     const fileContent = jsonfile.readFileSync(__dirname + "/contacts.json");
     t.deepEqual(fileContent, model.getAll());
+    auxModel.save();
 });
 
 test("Testeo el getOneById del modelo", (t) => {
