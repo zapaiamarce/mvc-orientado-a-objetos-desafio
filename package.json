@@ -2,7 +2,7 @@
   "name": "ava-typescript-basic",
   "description": "Basic example for AVA with TypeScript",
   "scripts": {
-    "test": "ava"
+    "test": "rimraf ./build && ava"
   },
   "devDependencies": {
     "@ava/typescript": "^4.1.0",
