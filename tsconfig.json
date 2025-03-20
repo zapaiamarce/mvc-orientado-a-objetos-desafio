@@ -7,6 +7,10 @@
     "resolveJsonModule": true,
     "noUnusedParameters": false,
     "allowSyntheticDefaultImports": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "lib": ["es6"],
+    "skipLibCheck": true,
+    "esModuleInterop": true
+
   }
 }
