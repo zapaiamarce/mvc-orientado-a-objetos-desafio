@@ -8,5 +8,40 @@ class Contact {
   name: string = "";
 }
 
-class ContactsCollection {}
+class ContactsCollection {
+
+  data: any[];
+  constructor() {
+    this.data = [];
+  }
+
+  public load(){
+    const fs = require('fs');
+    const data = fs.readFileSync('contacts.json', 'utf8');
+    this.data = JSON.parse(data);
+  } 
+
+  public getAll(){
+    return this.data;
+  }
+
+  public addOne(contact){
+    const exist= this.data.some(c=> c.id === contact.id);
+    if(!exist){
+      this.data.push(contact);
+    }else{
+      console.log(`El contacto con id ${contact.id} ya existe`);
+    }
+   
+  }
+
+  public save(){
+    const fs= require('fs');
+    fs.writeFileSync('contacts.json', JSON.stringify(this.data,null,2));
+  }
+
+  public getOneById(id){
+    return this.data.find(contact => contact.id=== id);
+  }
+}
 export { ContactsCollection };
