@@ -20,8 +20,10 @@
     }
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "jsonfile": "^6.1.0",
     "minimist": "^1.2.8",
+    "node-fetch": "^3.3.2",
     "rimraf": "^3.0.2"
   }
 }
