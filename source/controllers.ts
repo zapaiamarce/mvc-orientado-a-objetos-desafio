@@ -20,7 +20,7 @@ class ContactsController {
       } else {
         return this.contacts.getAll();
       }
-    } else if (options.action === 'save') {
+    } else if (options.action === 'save' && options.params) {
       this.contacts.addOne(options.params);
     }
 
