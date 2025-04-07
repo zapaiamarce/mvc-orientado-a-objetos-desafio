@@ -22,6 +22,8 @@ class ContactsController {
       }
     } else if (options.action === 'save' && options.params) {
       this.contacts.addOne(options.params);
+      this.contacts.save();
+      return `${options.params.name} ha sido agregado exitosamente ✅`;
     }
 
     return null;
