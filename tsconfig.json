@@ -7,6 +7,8 @@
     "resolveJsonModule": true,
     "noUnusedParameters": false,
     "allowSyntheticDefaultImports": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "strict": true, // Esto habilita todas las verificaciones estrictas
+        "strictPropertyInitialization": true // Asegúrate de que esto esté configurado
   }
 }

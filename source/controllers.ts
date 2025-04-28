@@ -1,14 +1,30 @@
-import { ContactsCollection } from "./models";
+import { ContactsCollection , Contact } from "./models";
 
 export type ContactsControllerOptions = {
   action?: "get" | "save" | null;
-  params: any;
+  params: any  ;
 };
 
 class ContactsController {
-  contacts: ContactsCollection = {};
-  constructor() {}
-  processOptions(options: ContactsControllerOptions) {}
+  contacts: ContactsCollection;   //Tener un método processOptions que reciba como parámetro un objeto del tipo ContactsControllerOptions
+
+  constructor() {
+    this.contacts = new ContactsCollection();
+    this.contacts.load();
+    
+  }
+  processOptions(options: ContactsControllerOptions) { //Dependiendo de las propiedades action y params debe interactuar con el modelo (ContactsController) e invocar distintos métodos
+    var resultado;
+    if (options.action == "get" && options.params.id){
+      resultado = this.contacts.getOneById(options.params.id);
+    } else if (options.action == "get"){
+      resultado = this.contacts.getAll();
+    } else if (options.action == "save" && options.params){
+      this.contacts.addOne(options.params);
+      this.contacts.save();
+    }
+    return resultado
+  }
 }
 
 export { ContactsController };
