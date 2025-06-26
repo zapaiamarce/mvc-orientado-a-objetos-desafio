@@ -6,7 +6,8 @@ import * as jsonfile from "jsonfile";
 test("Testeo el load del modelo", (t) => {
   const model = new ContactsCollection();
   model.load();
-  t.deepEqual(contactsObject, model.getAll());
+  let currentContacts = model.getAll();
+  t.deepEqual(contactsObject, currentContacts);
 });
 
 test("Testeo el addOne del modelo", (t) => {
@@ -28,7 +29,9 @@ test("Testeo el save del modelo", (t) => {
   };
   model.addOne(mockContact);
   model.save();
-  const fileContent = jsonfile.readFileSync(__dirname + "/contacts.json");
+  const fileContent = jsonfile.readFileSync("source/contacts.json");
+  console.log("File content ", fileContent);
+
   t.deepEqual(fileContent, model.getAll());
 });
 

@@ -1,13 +1,22 @@
 import { ContactsController, ContactsControllerOptions } from "./controllers";
+var argv = require("minimist")(process.argv.slice(2));
 
 function parseaParams(argv): ContactsControllerOptions {
-  // parsear el argv usando https://www.npmjs.com/package/minimist
+  const parsedJson = JSON.parse(argv.params);
+
   return {
-    action: null,
-    params: null,
+    action: argv.action,
+    params: parsedJson,
   };
 }
 
-function main() {}
+function main() {
+  const options = parseaParams(argv);
+  const contactsCntrll = new ContactsController();
+  const res = contactsCntrll.processOptions(options);
+  console.log("Resultado de process options via terminal : ", res);
+
+  return res;
+}
 
 main();
