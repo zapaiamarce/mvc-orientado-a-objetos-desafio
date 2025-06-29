@@ -1,12 +1,12 @@
 {
-  "extends": "@sindresorhus/tsconfig",
   "compilerOptions": {
-    "noUnusedLocals": false,
+    "target": "es2017",
     "module": "commonjs",
     "outDir": "build",
+    "rootDir": "source",
+    "strict": true,
+    "esModuleInterop": true,
     "resolveJsonModule": true,
-    "noUnusedParameters": false,
-    "allowSyntheticDefaultImports": true,
-    "noImplicitAny": false
+    "lib": ["es2017"]
   }
 }
