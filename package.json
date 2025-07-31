@@ -2,25 +2,28 @@
   "name": "ava-typescript-basic",
   "description": "Basic example for AVA with TypeScript",
   "scripts": {
-    "test": "rimraf ./build && ava"
+    "test": "ava"
   },
   "devDependencies": {
     "@ava/typescript": "^4.1.0",
     "@sindresorhus/tsconfig": "^1.0.2",
     "@types/jsonfile": "^6.1.0",
+    "@types/node": "^24.1.0",
     "ava": "^6.0.1",
+    "tsx": "^4.20.3",
     "typescript": "^5.3.3"
   },
-  "ava": {
-    "typescript": {
-      "compile": "tsc",
-      "rewritePaths": {
-        "source/": "build/"
-      }
+"ava": {
+  "typescript": {
+    "compile": "tsc",
+    "rewritePaths": {
+      "source/": "build/"
     }
-  },
+  }
+},
   "dependencies": {
     "jsonfile": "^6.1.0",
+    "minimist": "^1.2.8",
     "rimraf": "^3.0.2"
   }
 }
