@@ -2,7 +2,9 @@
   "name": "ava-typescript-basic",
   "description": "Basic example for AVA with TypeScript",
   "scripts": {
-    "test": "rimraf ./build && ava"
+    "test": "rimraf ./build && ava",
+    "start": "ts-node source/index.ts"
+
   },
   "devDependencies": {
     "@ava/typescript": "^4.1.0",
@@ -21,6 +23,7 @@
   },
   "dependencies": {
     "jsonfile": "^6.1.0",
+    "minimist": "^1.2.8",
     "rimraf": "^3.0.2"
   }
 }
