@@ -1,12 +1,13 @@
 {
   "extends": "@sindresorhus/tsconfig",
   "compilerOptions": {
-    "noUnusedLocals": false,
-    "module": "commonjs",
-    "outDir": "build",
-    "resolveJsonModule": true,
-    "noUnusedParameters": false,
-    "allowSyntheticDefaultImports": true,
-    "noImplicitAny": false
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "es6",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noUnusedLocals": false // Agregá esta línea
   }
 }
