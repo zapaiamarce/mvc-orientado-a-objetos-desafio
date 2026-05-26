@@ -8,6 +8,7 @@
     "@ava/typescript": "^4.1.0",
     "@sindresorhus/tsconfig": "^1.0.2",
     "@types/jsonfile": "^6.1.0",
+    "@types/minimist": "^1.2.5",
     "ava": "^6.0.1",
     "typescript": "^5.3.3"
   },
@@ -21,6 +22,7 @@
   },
   "dependencies": {
     "jsonfile": "^6.1.0",
+    "minimist": "^1.2.8",
     "rimraf": "^3.0.2"
   }
 }
