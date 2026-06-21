@@ -8,5 +8,44 @@ class Contact {
   name: string = "";
 }
 
-class ContactsCollection {}
+class ContactsCollection {
+  contacts: Contact[] = [];
+  async load() {
+    return new Promise((resolve, reject) => {
+      import("jsonfile").then((jsonfile) => {
+        jsonfile.readFile("./source/contacts.json", (err, data) => {
+          if (err) {
+            reject(err);
+          } else {
+            this.contacts = data;
+            resolve(this.contacts);
+          }
+        });
+      });
+    });
+  }
+
+  getAll() {
+    return this.contacts;
+  }
+  addOne(contact: Contact) {
+    this.contacts.push(contact);
+  }
+  save() {
+    return new Promise((resolve, reject) => {
+      import("jsonfile").then((jsonfile) => {
+        jsonfile.writeFile("./source/contacts.json", this.contacts, (err) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(this.contacts);
+          }
+        });
+      });
+    });
+  }
+  getOneById(id: number) {
+    return this.contacts.find((contact) => contact.id === id);
+  }
+}
 export { ContactsCollection };
