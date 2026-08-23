@@ -1,13 +1,29 @@
-import { ContactsController, ContactsControllerOptions } from "./controllers";
+import { ContactsController, ContactsControllerOptions, } from "./controllers";
+import { Contact } from "./models";
 
-function parseaParams(argv): ContactsControllerOptions {
-  // parsear el argv usando https://www.npmjs.com/package/minimist
+
+const minimist = require('minimist');
+const argv = minimist(process.argv.slice(2));
+ 
+function parseaParams(argv:any): ContactsControllerOptions {
   return {
-    action: null,
-    params: null,
+    action: typeof argv.action === "string" ? argv.action : null,
+    params: {
+      id: typeof argv.params.id === "number" ? argv.params.id : undefined,
+      name: typeof argv.params.name === "string" ? argv.params.name : null,
+    },
   };
 }
 
 function main() {}
+const user = parseaParams(argv)
+console.log(user)
+const vista = new ContactsController()
+console.log(vista.processOptions(user)
+)
+
 
 main();
+
+
+
